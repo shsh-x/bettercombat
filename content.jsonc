@@ -1,0 +1,190 @@
+{
+  "Format": "2.0.0",
+  "ConfigSchema": {
+    "MonstersHealth": {
+      "Description": "Adjust the health of all monsters. You can increase or decrease their health by a percentage, or tie it to your daily luck.",
+      "Section": "Combat Difficulty",
+      "AllowValues": "Default, HP -90%, HP -75%, HP -50%, HP -25%, HP -10%, HP +10%, HP +25%, HP +50%, HP +75%, HP +90%, Lucky Health (Easy), Lucky Health (Easier), Lucky Health (Easiest)",
+      "Default": "Default"
+    },
+    "DamageReceived": {
+      "Description": "Adjust the damage you receive from all monsters.",
+      "Section": "Combat Difficulty",
+      "AllowValues": "Default, Decrease Damage by 10%, Decrease Damage by 90%, Increase Damage by 10%, Increase Damage by 250%",
+      "Default": "Default"
+    }
+  },
+  "DynamicTokens": [
+    {
+      "Name": "MonsterList",
+      "Value": "Green Slime,Dust Spirit,Bat,Frost Bat,Lava Bat,Iridium Bat,Stone Golem,Wilderness Golem,Grub,Fly,Frost Jelly,Sludge,Shadow Guy,Ghost,Carbon Ghost,Duggy,Rock Crab,Lava Crab,Iridium Crab,Skeleton Warrior,Shadow Brute,Shadow Shaman,Skeleton,Skeleton Mage,Metal Head,Spiker,Mummy,Big Slime,Serpent,Pepper Rex,Tiger Slime,Lava Lurk,Hot Head,Magma Sprite,Magma Duggy,Magma Sparker,False Magma Cap,Dwarvish Sentry,Putrid Ghost,Shadow Sniper,Spider,Royal Serpent,Blue Squid,Fireball,Bug"
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "0.10",
+      "When": { "MonstersHealth": "HP -90%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "0.25",
+      "When": { "MonstersHealth": "HP -75%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "0.50",
+      "When": { "MonstersHealth": "HP -50%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "0.75",
+      "When": { "MonstersHealth": "HP -25%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "0.90",
+      "When": { "MonstersHealth": "HP -10%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "1.10",
+      "When": { "MonstersHealth": "HP +10%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "1.25",
+      "When": { "MonstersHealth": "HP +25%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "1.50",
+      "When": { "MonstersHealth": "HP +50%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "1.75",
+      "When": { "MonstersHealth": "HP +75%" }
+    },
+    {
+      "Name": "PercentageHealthMultiplier",
+      "Value": "1.90",
+      "When": { "MonstersHealth": "HP +90%" }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "1.0",
+      "When": { "MonstersHealth|contains=Lucky": true }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "1.25",
+      "When": { "MonstersHealth": "Lucky Health (Easy)", "Query: {{DailyLuck}} < -0.07": true }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "0.75",
+      "When": { "MonstersHealth": "Lucky Health (Easy)", "Query: {{DailyLuck}} > 0.07": true }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "1.15",
+      "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} < -0.07": true }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "1.05",
+      "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} >= -0.07 AND {{DailyLuck}} < -0.02": true }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "0.75",
+      "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "0.50",
+      "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} > 0.07": true }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "0.50",
+      "When": { "MonstersHealth": "Lucky Health (Easiest)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true }
+    },
+    {
+      "Name": "LuckyHealthMultiplier",
+      "Value": "0.20",
+      "When": { "MonstersHealth": "Lucky Health (Easiest)", "Query: {{DailyLuck}} > 0.07": true }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "0.90",
+      "When": { "DamageReceived": "Decrease Damage by 10%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "0.10",
+      "When": { "DamageReceived": "Decrease Damage by 90%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "1.10",
+      "When": { "DamageReceived": "Increase Damage by 10%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "3.50",
+      "When": { "DamageReceived": "Increase Damage by 250%" }
+    }
+  ],
+  "Changes": [
+    {
+      "LogName": "Monsters Health Adjustment (Percentage)",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating health for {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "0" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:0}} * {{PercentageHealthMultiplier}} }} }}"
+      },
+      "When": {
+        "MonstersHealth|contains=HP": true
+      }
+    },
+    {
+      "LogName": "Monsters Health Adjustment (Lucky)",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating health for {{PatchValue}} based on luck",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "0" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:0}} * {{LuckyHealthMultiplier}} }} }}",
+        "When": {
+            "LuckyHealthMultiplier": "1.0",
+            "operator": "Not"
+        }
+      },
+      "When": {
+        "MonstersHealth|contains=Lucky": true
+      }
+    },
+    {
+      "LogName": "Monsters Damage Adjustment",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating damage for {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "1" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:1}} * {{DamageMultiplier}} }} }}"
+      },
+      "When": {
+        "DamageReceived": "Default",
+        "operator": "Not"
+      }
+    }
+  ]
+}
