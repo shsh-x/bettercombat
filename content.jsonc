@@ -175,6 +175,12 @@
       "Section": "Ore, Bars, and Minerals",
       "AllowValues": "Default, Increase by 10%, Increase by 25%, Increase by 50%, Increase by 75%, Increase by 90%, Decrease by 10%, Decrease by 25%, Decrease by 50%, Decrease by 75%, Decrease by 90%",
       "Default": "Default"
+    },
+    "OreAndBarsSellValue": {
+      "Description": "Select the sell value of all ore and bars.",
+      "Section": "Ore, Bars, and Minerals",
+      "AllowValues": "Default, Increase by 10%, Increase by 25%, Increase by 50%, Increase by 75%, Increase by 90%, Decrease by 10%, Decrease by 25%, Decrease by 50%, Decrease by 75%, Decrease by 90%",
+      "Default": "Default"
     }
   },
   "DynamicTokens": [
@@ -306,6 +312,19 @@
     { "Name": "MineralPriceMultiplier", "Value": "0.50", "When": { "MineralsSellValue": "Decrease by 50%" } },
     { "Name": "MineralPriceMultiplier", "Value": "0.25", "When": { "MineralsSellValue": "Decrease by 75%" } },
     { "Name": "MineralPriceMultiplier", "Value": "0.10", "When": { "MineralsSellValue": "Decrease by 90%" } },
+    // #endregion
+
+    // #region Ore and Bar Price Tokens
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "1.10", "When": { "OreAndBarsSellValue": "Increase by 10%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "1.25", "When": { "OreAndBarsSellValue": "Increase by 25%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "1.50", "When": { "OreAndBarsSellValue": "Increase by 50%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "1.75", "When": { "OreAndBarsSellValue": "Increase by 75%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "1.90", "When": { "OreAndBarsSellValue": "Increase by 90%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "0.90", "When": { "OreAndBarsSellValue": "Decrease by 10%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "0.75", "When": { "OreAndBarsSellValue": "Decrease by 25%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "0.50", "When": { "OreAndBarsSellValue": "Decrease by 50%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "0.25", "When": { "OreAndBarsSellValue": "Decrease by 75%" } },
+    { "Name": "OreAndBarsPriceMultiplier", "Value": "0.10", "When": { "OreAndBarsSellValue": "Decrease by 90%" } },
     // #endregion
 
     // #region Monster Health Multipliers
@@ -1344,11 +1363,33 @@
           "Query: '{{Data/Objects:{{PatchValue}}:Type}}' = 'Minerals'": true
         }
       },
-      "When": {
-        "MineralsSellValue|not=Default": true
+            "When": {
+              "MineralsSellValue|not=Default": true
+            }
+          },
+          // #endregion
+      
+          // #region Ore and Bar Sell Price
+          {
+            "LogName": "Ores and Bars | Adjust Sell Price",
+            "Action": "ForEach",
+            "Values": "{{ObjectIDs}}",
+            "Patch": {
+              "LogName": "Patching Price for ore/bar {{PatchValue}}",
+              "Action": "EditData",
+              "Target": "Data/Objects",
+              "TargetField": [ "{{PatchValue}}", "Price" ],
+              "Value": "{{Round: {{Query: {{Data/Objects:{{PatchValue}}:Price}} * {{OreAndBarsPriceMultiplier}} }} }}",
+              "When": {
+                "Data/Objects:{{PatchValue}}:ContextTags": "ore_item, furnace_item"
+              }
+            },
+            "When": {
+              "OreAndBarsSellValue|not=Default": true
+            }
+          }
+          // #endregion
+      
+      
+        ]
       }
-    }
-    // #endregion
-
-  ]
-}
