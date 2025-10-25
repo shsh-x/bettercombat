@@ -1,0 +1,25 @@
+{
+  "//": "This file contains placeholders for the old monster detection radius logic. The logic has been refactored in 'content.jsonc'.",
+  "Changes": [
+    {
+      "LogName": "PLACEHOLDER: Ground Monster Detection Radius Decreased by 50%",
+      "Action": "EditData",
+      "Target": "Data/Monsters",
+      "Fields": {
+        "//": "This block previously contained a list of ground monsters. Note the bug where it incorrectly modifies index 13 (XP) instead of 9 (detection radius).",
+        "Green Slime": { "13": "2" }
+      },
+      "When": { "Ground Monster Detection": "Decrease Detection by 50%" }
+    },
+    {
+      "LogName": "PLACEHOLDER: Flying Monster Detection Radius Decreased by 50%",
+      "Action": "EditData",
+      "Target": "Data/Monsters",
+      "Fields": {
+        "//": "This block previously contained a list of flying monsters and also had the bug of modifying the wrong index.",
+        "Bat": { "13": "2" }
+      },
+      "When": { "Flying Monster Detection": "Decrease Detection by 50%" }
+    }
+  ]
+}

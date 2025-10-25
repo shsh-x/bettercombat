@@ -12,12 +12,30 @@
       "Section": "Combat Difficulty",
       "AllowValues": "Default, DMG -10%, DMG -25%, DMG -50%, DMG -75%, DMG -90%, DMG +10%, DMG +25%, DMG +50%, DMG +75%, DMG +90%, Lucky Damage (Easy), Lucky Damage (Easier), Lucky Damage (Easiest)",
       "Default": "Default"
+    },
+    "GroundMonsterDetection": {
+      "Description": "Adjust the detection radius of ground-based monsters.",
+      "Section": "Combat Difficulty",
+      "AllowValues": "Default, Radius -100%, Radius -75%, Radius -50%, Radius -25%, Radius +25%, Radius +50%, Radius +75%, Radius +100%",
+      "Default": "Default"
+    },
+    "FlyingMonsterDetection": {
+      "Description": "Adjust the detection radius of flying monsters (including Ghosts).",
+      "Section": "Combat Difficulty",
+      "AllowValues": "Default, Radius -100%, Radius -75%, Radius -50%, Radius -25%, Radius +25%, Radius +50%, Radius +75%, Radius +100%",
+      "Default": "Default"
+    },
+    "ExperiencePoints": {
+      "Description": "Adjust the amount of experience points (XP) gained from defeating monsters.",
+      "Section": "Combat Difficulty",
+      "AllowValues": "Default, XP -75%, XP -50%, XP -25%, XP +25%, XP +50%, XP +100%, XP +150%, XP +200%",
+      "Default": "Default"
     }
   },
   "DynamicTokens": [
     {
       "Name": "MonsterList",
-      "Value": "Green Slime,Dust Spirit,Bat,Frost Bat,Lava Bat,Iridium Bat,Stone Golem,Wilderness Golem,Grub,Fly,Frost Jelly,Sludge,Shadow Guy,Ghost,Carbon Ghost,Duggy,Rock Crab,Lava Crab,Iridium Crab,Skeleton Warrior,Shadow Brute,Shadow Shaman,Skeleton,Skeleton Mage,Metal Head,Spiker,Mummy,Big Slime,Serpent,Pepper Rex,Tiger Slime,Lava Lurk,Hot Head,Magma Sprite,Magma Duggy,Magma Sparker,False Magma Cap,Dwarvish Sentry,Putrid Ghost,Shadow Sniper,Spider,Royal Serpent,Blue Squid,Fireball,Bug"
+      "Value": "{{Data/Monsters | keys}}"
     },
 
     // #region Monster Health Multipliers
@@ -223,6 +241,141 @@
       "Name": "LuckyDamageMultiplier",
       "Value": "0.20",
       "When": { "DamageReceived": "Lucky Damage (Easiest)", "Query: {{DailyLuck}} > 0.07": true }
+    },
+    // #endregion
+
+    // #region Monster Speed Multipliers
+    {
+      "Name": "SpeedMultiplier",
+      "Value": "0.25",
+      "When": { "MonstersSpeed": "Speed -75%" }
+    },
+    {
+      "Name": "SpeedMultiplier",
+      "Value": "0.50",
+      "When": { "MonstersSpeed": "Speed -50%" }
+    },
+    {
+      "Name": "SpeedMultiplier",
+      "Value": "0.75",
+      "When": { "MonstersSpeed": "Speed -25%" }
+    },
+    {
+      "Name": "SpeedMultiplier",
+      "Value": "1.25",
+      "When": { "MonstersSpeed": "Speed +25%" }
+    },
+    {
+      "Name": "SpeedMultiplier",
+      "Value": "1.50",
+      "When": { "MonstersSpeed": "Speed +50%" }
+    },
+    {
+      "Name": "SpeedMultiplier",
+      "Value": "1.75",
+      "When": { "MonstersSpeed": "Speed +75%" }
+    },
+    // #endregion
+
+    // #region Monster Detection Multipliers
+    {
+      "Name": "GroundDetectionMultiplier",
+      "Value": "0", "When": { "GroundMonsterDetection": "Radius -100%" }
+    },
+    {
+      "Name": "GroundDetectionMultiplier",
+      "Value": "0.25", "When": { "GroundMonsterDetection": "Radius -75%" }
+    },
+    {
+      "Name": "GroundDetectionMultiplier",
+      "Value": "0.50", "When": { "GroundMonsterDetection": "Radius -50%" }
+    },
+    {
+      "Name": "GroundDetectionMultiplier",
+      "Value": "0.75", "When": { "GroundMonsterDetection": "Radius -25%" }
+    },
+    {
+      "Name": "GroundDetectionMultiplier",
+      "Value": "1.25", "When": { "GroundMonsterDetection": "Radius +25%" }
+    },
+    {
+      "Name": "GroundDetectionMultiplier",
+      "Value": "1.50", "When": { "GroundMonsterDetection": "Radius +50%" }
+    },
+    {
+      "Name": "GroundDetectionMultiplier",
+      "Value": "1.75", "When": { "GroundMonsterDetection": "Radius +75%" }
+    },
+    {
+      "Name": "GroundDetectionMultiplier",
+      "Value": "2.00", "When": { "GroundMonsterDetection": "Radius +100%" }
+    },
+    {
+      "Name": "FlyingDetectionMultiplier",
+      "Value": "0", "When": { "FlyingMonsterDetection": "Radius -100%" }
+    },
+    {
+      "Name": "FlyingDetectionMultiplier",
+      "Value": "0.25", "When": { "FlyingMonsterDetection": "Radius -75%" }
+    },
+    {
+      "Name": "FlyingDetectionMultiplier",
+      "Value": "0.50", "When": { "FlyingMonsterDetection": "Radius -50%" }
+    },
+    {
+      "Name": "FlyingDetectionMultiplier",
+      "Value": "0.75", "When": { "FlyingMonsterDetection": "Radius -25%" }
+    },
+    {
+      "Name": "FlyingDetectionMultiplier",
+      "Value": "1.25", "When": { "FlyingMonsterDetection": "Radius +25%" }
+    },
+    {
+      "Name": "FlyingDetectionMultiplier",
+      "Value": "1.50", "When": { "FlyingMonsterDetection": "Radius +50%" }
+    },
+    {
+      "Name": "FlyingDetectionMultiplier",
+      "Value": "1.75", "When": { "FlyingMonsterDetection": "Radius +75%" }
+    },
+    {
+      "Name": "FlyingDetectionMultiplier",
+      "Value": "2.00", "When": { "FlyingMonsterDetection": "Radius +100%" }
+    },
+    // #endregion
+
+    // #region Monster Experience Multipliers
+    {
+      "Name": "ExperienceMultiplier",
+      "Value": "0.25", "When": { "ExperiencePoints": "XP -75%" }
+    },
+    {
+      "Name": "ExperienceMultiplier",
+      "Value": "0.50", "When": { "ExperiencePoints": "XP -50%" }
+    },
+    {
+      "Name": "ExperienceMultiplier",
+      "Value": "0.75", "When": { "ExperiencePoints": "XP -25%" }
+    },
+    {
+      "Name": "ExperienceMultiplier",
+      "Value": "1.25", "When": { "ExperiencePoints": "XP +25%" }
+    },
+    {
+      "Name": "ExperienceMultiplier",
+      "Value": "1.50", "When": { "ExperiencePoints": "XP +50%" }
+    },
+    {
+      "Name": "ExperienceMultiplier",
+      "Value": "2.00", "When": { "ExperiencePoints": "XP +100%" }
+    },
+    {
+      "Name": "ExperienceMultiplier",
+      "Value": "2.50", "When": { "ExperiencePoints": "XP +150%" }
+    },
+    {
+      "Name": "ExperienceMultiplier",
+      "Value": "3.00", "When": { "ExperiencePoints": "XP +200%" }
     }
     // #endregion
   ],
@@ -237,7 +390,10 @@
         "Action": "EditData",
         "Target": "Data/Monsters",
         "TargetField": [ "{{PatchValue}}", "0" ],
-        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:0}} * {{PercentageHealthMultiplier}} }} }}"
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:0}} * {{PercentageHealthMultiplier}} }} }}",
+        "When": {
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true
+        }
       },
       "When": {
         "MonstersHealth|contains=HP": true
@@ -254,8 +410,8 @@
         "TargetField": [ "{{PatchValue}}", "0" ],
         "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:0}} * {{LuckyHealthMultiplier}} }} }}",
         "When": {
-            "LuckyHealthMultiplier": "1.0",
-            "operator": "Not"
+          "LuckyHealthMultiplier|not=1.0": true,
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true
         }
       },
       "When": {
@@ -274,7 +430,10 @@
         "Action": "EditData",
         "Target": "Data/Monsters",
         "TargetField": [ "{{PatchValue}}", "1" ],
-        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:1}} * {{DamageMultiplier}} }} }}"
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:1}} * {{DamageMultiplier}} }} }}",
+        "When": {
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true
+        }
       },
       "When": {
         "DamageReceived|contains=DMG": true
@@ -291,12 +450,114 @@
         "TargetField": [ "{{PatchValue}}", "1" ],
         "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:1}} * {{LuckyDamageMultiplier}} }} }}",
         "When": {
-            "LuckyDamageMultiplier": "1.0",
-            "operator": "Not"
+          "LuckyDamageMultiplier|not=1.0": true,
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true
         }
       },
       "When": {
         "DamageReceived|contains=Lucky": true
+      }
+    },
+    // #endregion
+
+    // #region Monster Speed Changes
+    {
+      "LogName": "Monsters Speed Adjustment",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating speed for {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "10" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:10}} * {{SpeedMultiplier}} }} }}",
+        "When": {
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true
+        }
+      },
+      "When": {
+        "MonstersSpeed|contains=Speed": true
+      }
+    },
+    // #endregion
+
+    // #region Monster Detection Changes
+    {
+      "LogName": "Ground Monster Detection Radius Adjustment",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating detection radius for ground monster {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "9" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:9}} * {{GroundDetectionMultiplier}} }} }}",
+        "When": {
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true,
+          "Query: '{{Data/Monsters:{{PatchValue}}:4}}' = 'false'": true,
+          "PatchValue|not=Ghost": true
+        }
+      },
+      "When": {
+        "GroundMonsterDetection|not=Default": true
+      }
+    },
+    {
+      "LogName": "Flying Monster (Glider) Detection Radius Adjustment",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating detection radius for flying monster {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "9" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:9}} * {{FlyingDetectionMultiplier}} }} }}",
+        "When": {
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true,
+          "Query: '{{Data/Monsters:{{PatchValue}}:4}}' = 'true'": true
+        }
+      },
+      "When": {
+        "FlyingMonsterDetection|not=Default": true
+      }
+    },
+    {
+      "LogName": "Flying Monster (Ghost) Detection Radius Adjustment",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating detection radius for Ghost monster",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "Ghost", "9" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:Ghost:9}} * {{FlyingDetectionMultiplier}} }} }}",
+        "When": {
+          "PatchValue": "Ghost"
+        }
+      },
+      "When": {
+        "FlyingMonsterDetection|not=Default": true
+      }
+    },
+    // #endregion
+
+    // #region Monster Experience Changes
+    {
+      "LogName": "Monster Experience Points Adjustment",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating XP for {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "13" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:13}} * {{ExperienceMultiplier}} }} }}",
+        "When": {
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true
+        }
+      },
+      "When": {
+        "ExperiencePoints|not=Default": true
       }
     }
     // #endregion
