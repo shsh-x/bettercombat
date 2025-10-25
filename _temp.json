@@ -1,25 +1,15 @@
 {
-  "//": "This file contains placeholders for the old monster detection radius logic. The logic has been refactored in 'content.jsonc'.",
+  "//": "This file contains a placeholder for the old monster experience points (XP) logic. The logic has been refactored in 'content.jsonc'.",
   "Changes": [
     {
-      "LogName": "PLACEHOLDER: Ground Monster Detection Radius Decreased by 50%",
+      "LogName": "PLACEHOLDER: Combat Skill Experience Points Increased by 1.5X",
       "Action": "EditData",
       "Target": "Data/Monsters",
       "Fields": {
-        "//": "This block previously contained a list of ground monsters. Note the bug where it incorrectly modifies index 13 (XP) instead of 9 (detection radius).",
-        "Green Slime": { "13": "2" }
+        "//": "This block previously contained a list of all monsters with hardcoded XP calculations.",
+        "Green Slime": { "13": "{{Round: {{Query: (3 * 1.5) }} }}" }
       },
-      "When": { "Ground Monster Detection": "Decrease Detection by 50%" }
-    },
-    {
-      "LogName": "PLACEHOLDER: Flying Monster Detection Radius Decreased by 50%",
-      "Action": "EditData",
-      "Target": "Data/Monsters",
-      "Fields": {
-        "//": "This block previously contained a list of flying monsters and also had the bug of modifying the wrong index.",
-        "Bat": { "13": "2" }
-      },
-      "When": { "Flying Monster Detection": "Decrease Detection by 50%" }
+      "When": { "Combat Skill Experience Points": "Increase EXP by 1.5X" }
     }
   ]
 }
