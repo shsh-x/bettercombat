@@ -84,6 +84,97 @@
       "Section": "Weapon Modifications",
       "AllowValues": "true, false",
       "Default": "false"
+    },
+
+    // #region Furnace Machinery
+    "FurnaceProduceMin": {
+      "Description": "Select the minimum production of bars and quartz from Furnaces.",
+      "Section": "Furnace Machinery",
+      "AllowValues": "Default (1), 2, 3, 4, 5, 6, 7, 8, 9, 10",
+      "Default": "Default (1)"
+    },
+    "FurnaceProduceMax": {
+      "Description": "Select the maximum production of bars and quartz from Furnaces.",
+      "Section": "Furnace Machinery",
+      "AllowValues": "Default (1), 2, 3, 4, 5, 6, 7, 8, 9, 10",
+      "Default": "Default (1)"
+    },
+    "FurnaceRequiredMats": {
+      "Description": "Select the amount of ore and quartz required to be placed inside Furnaces.",
+      "Section": "Furnace Machinery",
+      "AllowValues": "Default (5), 2, 3, 4, 5, 8, 10, 15, 20",
+      "Default": "Default (5)"
+    },
+    // #endregion
+
+    // #region Heavy Furnace Machinery
+    "HeavyFurnaceProduceMin": {
+      "Description": "Select the minimum production of bars and quartz from Heavy Furnaces.",
+      "Section": "Heavy Furnace Machinery",
+      "AllowValues": "Default (1), 2, 3, 4, 5, 6, 7, 8, 9, 10",
+      "Default": "Default (1)"
+    },
+    "HeavyFurnaceProduceMax": {
+      "Description": "Select the maximum production of bars and quartz from Heavy Furnaces.",
+      "Section": "Heavy Furnace Machinery",
+      "AllowValues": "Default (1), 2, 3, 4, 5, 6, 7, 8, 9, 10",
+      "Default": "Default (1)"
+    },
+    "HeavyFurnaceRequiredMats": {
+      "Description": "Select the amount of ore and quartz required to be placed inside Heavy Furnaces.",
+      "Section": "Heavy Furnace Machinery",
+      "AllowValues": "Default (5), 2, 3, 4, 5, 8, 10, 15, 20",
+      "Default": "Default (5)"
+    },
+    // #endregion
+
+    // #region Furnace Machinery
+    "FurnaceFasterBars": {
+      "Description": "Select the bar production speed in Furnaces.",
+      "Section": "Furnace Machinery",
+      "AllowValues": "Default, 25% Faster, 50% Faster, 75% Faster, 99% Faster",
+      "Default": "Default"
+    },
+    "FurnaceMaterials": {
+      "Description": "Reduce the material requirements for crafting Furnaces.",
+      "Section": "Furnace Machinery",
+      "AllowValues": "Default, Lessened Materials, 5 Copper Ore",
+      "Default": "Default"
+    },
+    "FurnaceNoCoal": {
+      "Description": "Furnaces will no longer require coal for bar production.",
+      "Section": "Furnace Machinery",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    // #endregion
+
+    // #region Heavy Furnace Machinery
+    "HeavyFurnaceFasterBars": {
+      "Description": "Select the bar production speed in Heavy Furnaces.",
+      "Section": "Heavy Furnace Machinery",
+      "AllowValues": "Default, 25% Faster, 50% Faster, 75% Faster, 99% Faster",
+      "Default": "Default"
+    },
+    "HeavyFurnaceMaterials": {
+      "Description": "Reduce the material requirements for crafting Heavy Furnaces.",
+      "Section": "Heavy Furnace Machinery",
+      "AllowValues": "Default, Lessened Materials, 1 Furnace",
+      "Default": "Default"
+    },
+    "HeavyFurnaceNoCoal": {
+      "Description": "Heavy Furnaces will no longer require coal for bar production.",
+      "Section": "Heavy Furnace Machinery",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    // #endregion
+
+    "MineralsSellValue": {
+      "Description": "Select the sell value of all minerals, including those obtained from geodes.",
+      "Section": "Ore, Bars, and Minerals",
+      "AllowValues": "Default, Increase by 10%, Increase by 25%, Increase by 50%, Increase by 75%, Increase by 90%, Decrease by 10%, Decrease by 25%, Decrease by 50%, Decrease by 75%, Decrease by 90%",
+      "Default": "Default"
     }
   },
   "DynamicTokens": [
@@ -112,7 +203,109 @@
 
     // #region Weapon Speed Values
     { "Name": "WeaponSpeedValue", "Value": "20", "When": { "WeaponSpeed": "Fast" } },
-    { "Name": "WeaponSpeedValue", "Value": "50", "When": { "WeaponSpeed": "Very Fast" } },
+    { "Name": "WeaponSpeedValue", "Value": "-8", "When": { "WeaponSpeed": "Very Fast" } },
+    // #endregion
+
+    // #region Furnace Produce Tokens
+    { "Name": "FurnaceOutputRuleIDs",
+      "Value": "Default_CopperOre,Default_IronOre,Default_GoldOre,Default_IridiumOre,Default_Quartz,Default_FireQuartz,Default_RadioactiveOre" },
+    // Min Value Tokens
+    { "Name": "FurnaceMinStackValue", "Value": "2", "When": { "FurnaceProduceMin": "2" } },
+    { "Name": "FurnaceMinStackValue", "Value": "3", "When": { "FurnaceProduceMin": "3" } },
+    { "Name": "FurnaceMinStackValue", "Value": "4", "When": { "FurnaceProduceMin": "4" } },
+    { "Name": "FurnaceMinStackValue", "Value": "5", "When": { "FurnaceProduceMin": "5" } },
+    { "Name": "FurnaceMinStackValue", "Value": "6", "When": { "FurnaceProduceMin": "6" } },
+    { "Name": "FurnaceMinStackValue", "Value": "7", "When": { "FurnaceProduceMin": "7" } },
+    { "Name": "FurnaceMinStackValue", "Value": "8", "When": { "FurnaceProduceMin": "8" } },
+    { "Name": "FurnaceMinStackValue", "Value": "9", "When": { "FurnaceProduceMin": "9" } },
+    { "Name": "FurnaceMinStackValue", "Value": "10", "When": { "FurnaceProduceMin": "10" } },
+    // Max Value Tokens
+    { "Name": "FurnaceMaxStackValue", "Value": "2", "When": { "FurnaceProduceMax": "2" } },
+    { "Name": "FurnaceMaxStackValue", "Value": "3", "When": { "FurnaceProduceMax": "3" } },
+    { "Name": "FurnaceMaxStackValue", "Value": "4", "When": { "FurnaceProduceMax": "4" } },
+    { "Name": "FurnaceMaxStackValue", "Value": "5", "When": { "FurnaceProduceMax": "5" } },
+    { "Name": "FurnaceMaxStackValue", "Value": "6", "When": { "FurnaceProduceMax": "6" } },
+    { "Name": "FurnaceMaxStackValue", "Value": "7", "When": { "FurnaceProduceMax": "7" } },
+    { "Name": "FurnaceMaxStackValue", "Value": "8", "When": { "FurnaceProduceMax": "8" } },
+    { "Name": "FurnaceMaxStackValue", "Value": "9", "When": { "FurnaceProduceMax": "9" } },
+    { "Name": "FurnaceMaxStackValue", "Value": "10", "When": { "FurnaceProduceMax": "10" } },
+    // #endregion
+
+    // #region Furnace Required Mats Tokens
+    { "Name": "FurnaceRequiredMatsValue", "Value": "2", "When": { "FurnaceRequiredMats": "2" } },
+    { "Name": "FurnaceRequiredMatsValue", "Value": "3", "When": { "FurnaceRequiredMats": "3" } },
+    { "Name": "FurnaceRequiredMatsValue", "Value": "4", "When": { "FurnaceRequiredMats": "4" } },
+    { "Name": "FurnaceRequiredMatsValue", "Value": "5", "When": { "FurnaceRequiredMats": "5" } },
+    { "Name": "FurnaceRequiredMatsValue", "Value": "8", "When": { "FurnaceRequiredMats": "8" } },
+    { "Name": "FurnaceRequiredMatsValue", "Value": "10", "When": { "FurnaceRequiredMats": "10" } },
+    { "Name": "FurnaceRequiredMatsValue", "Value": "15", "When": { "FurnaceRequiredMats": "15" } },
+    { "Name": "FurnaceRequiredMatsValue", "Value": "20", "When": { "FurnaceRequiredMats": "20" } },
+    // #endregion
+
+    // #region Heavy Furnace Produce Tokens
+    {
+      "Name": "HeavyFurnaceOutputRuleIDs",
+      "Value": "Default_CopperOre,Default_IronOre,Default_GoldOre,Default_IridiumOre,Default_Quartz,Default_FireQuartz,Default_RadioactiveOre"
+    },
+    // Min Value Tokens
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "2", "When": { "HeavyFurnaceProduceMin": "2" } },
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "3", "When": { "HeavyFurnaceProduceMin": "3" } },
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "4", "When": { "HeavyFurnaceProduceMin": "4" } },
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "5", "When": { "HeavyFurnaceProduceMin": "5" } },
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "6", "When": { "HeavyFurnaceProduceMin": "6" } },
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "7", "When": { "HeavyFurnaceProduceMin": "7" } },
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "8", "When": { "HeavyFurnaceProduceMin": "8" } },
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "9", "When": { "HeavyFurnaceProduceMin": "9" } },
+    { "Name": "HeavyFurnaceMinStackValue", "Value": "10", "When": { "HeavyFurnaceProduceMin": "10" } },
+    // Max Value Tokens
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "2", "When": { "HeavyFurnaceProduceMax": "2" } },
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "3", "When": { "HeavyFurnaceProduceMax": "3" } },
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "4", "When": { "HeavyFurnaceProduceMax": "4" } },
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "5", "When": { "HeavyFurnaceProduceMax": "5" } },
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "6", "When": { "HeavyFurnaceProduceMax": "6" } },
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "7", "When": { "HeavyFurnaceProduceMax": "7" } },
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "8", "When": { "HeavyFurnaceProduceMax": "8" } },
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "9", "When": { "HeavyFurnaceProduceMax": "9" } },
+    { "Name": "HeavyFurnaceMaxStackValue", "Value": "10", "When": { "HeavyFurnaceProduceMax": "10" } },
+    // #endregion
+
+    // #region Heavy Furnace Required Mats Tokens
+    { "Name": "HeavyFurnaceRequiredMatsValue", "Value": "2", "When": { "HeavyFurnaceRequiredMats": "2" } },
+    { "Name": "HeavyFurnaceRequiredMatsValue", "Value": "3", "When": { "HeavyFurnaceRequiredMats": "3" } },
+    { "Name": "HeavyFurnaceRequiredMatsValue", "Value": "4", "When": { "HeavyFurnaceRequiredMats": "4" } },
+    { "Name": "HeavyFurnaceRequiredMatsValue", "Value": "5", "When": { "HeavyFurnaceRequiredMats": "5" } },
+    { "Name": "HeavyFurnaceRequiredMatsValue", "Value": "8", "When": { "HeavyFurnaceRequiredMats": "8" } },
+    { "Name": "HeavyFurnaceRequiredMatsValue", "Value": "10", "When": { "HeavyFurnaceRequiredMats": "10" } },
+    { "Name": "HeavyFurnaceRequiredMatsValue", "Value": "15", "When": { "HeavyFurnaceRequiredMats": "15" } },
+    { "Name": "HeavyFurnaceRequiredMatsValue", "Value": "20", "When": { "HeavyFurnaceRequiredMats": "20" } },
+    // #endregion
+
+    // #region Furnace Speed Tokens
+    { "Name": "FurnaceSpeedMultiplier", "Value": "0.75", "When": { "FurnaceFasterBars": "25% Faster" } },
+    { "Name": "FurnaceSpeedMultiplier", "Value": "0.50", "When": { "FurnaceFasterBars": "50% Faster" } },
+    { "Name": "FurnaceSpeedMultiplier", "Value": "0.25", "When": { "FurnaceFasterBars": "75% Faster" } },
+    { "Name": "FurnaceSpeedMultiplier", "Value": "0.01", "When": { "FurnaceFasterBars": "99% Faster" } },
+    // #endregion
+
+    // #region Heavy Furnace Speed Tokens
+    { "Name": "HeavyFurnaceSpeedMultiplier", "Value": "0.75", "When": { "HeavyFurnaceFasterBars": "25% Faster" } },
+    { "Name": "HeavyFurnaceSpeedMultiplier", "Value": "0.50", "When": { "HeavyFurnaceFasterBars": "50% Faster" } },
+    { "Name": "HeavyFurnaceSpeedMultiplier", "Value": "0.25", "When": { "HeavyFurnaceFasterBars": "75% Faster" } },
+    { "Name": "HeavyFurnaceSpeedMultiplier", "Value": "0.01", "When": { "HeavyFurnaceFasterBars": "99% Faster" } },
+    // #endregion
+
+    // #region Mineral Price Tokens
+    { "Name": "ObjectIDs", "Value": "{{Data/Objects | keys}}" },
+    { "Name": "MineralPriceMultiplier", "Value": "1.10", "When": { "MineralsSellValue": "Increase by 10%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "1.25", "When": { "MineralsSellValue": "Increase by 25%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "1.50", "When": { "MineralsSellValue": "Increase by 50%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "1.75", "When": { "MineralsSellValue": "Increase by 75%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "1.90", "When": { "MineralsSellValue": "Increase by 90%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "0.90", "When": { "MineralsSellValue": "Decrease by 10%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "0.75", "When": { "MineralsSellValue": "Decrease by 25%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "0.50", "When": { "MineralsSellValue": "Decrease by 50%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "0.25", "When": { "MineralsSellValue": "Decrease by 75%" } },
+    { "Name": "MineralPriceMultiplier", "Value": "0.10", "When": { "MineralsSellValue": "Decrease by 90%" } },
     // #endregion
 
     // #region Monster Health Multipliers
@@ -914,6 +1107,246 @@
         "66": { "MinDamage": 65, "MaxDamage": 75 }
       },
       "When": { "ScytheDamage": true }
+    },
+    // #endregion
+
+    // #region Furnace Produce Limits
+    {
+      "LogName": "Furnace | Set Min Production",
+      "Action": "ForEach",
+      "Values": "{{FurnaceOutputRuleIDs}}",
+      "Patch": {
+        "LogName": "Patching MinStack for rule {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Machines/(BC)13/OutputRules",
+        "TargetField": [ "MinStack" ],
+        "Value": "{{FurnaceMinStackValue}}",
+        "When": {
+          "Id": "{{PatchValue}}"
+        }
+      },
+      "When": {
+        "FurnaceProduceMin|contains=Default": false
+      }
+    },
+    {
+      "LogName": "Furnace | Set Max Production",
+      "Action": "ForEach",
+      "Values": "{{FurnaceOutputRuleIDs}}",
+      "Patch": {
+        "LogName": "Patching MaxStack for rule {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Machines/(BC)13/OutputRules",
+        "TargetField": [ "MaxStack" ],
+        "Value": "{{FurnaceMaxStackValue}}",
+        "When": {
+          "Id": "{{PatchValue}}"
+        }
+      }
+    },
+    // #endregion
+
+    // #region Furnace Required materials
+    {
+      "LogName": "Furnace | Set Required Materials",
+      "Action": "ForEach",
+      "Values": "{{FurnaceOutputRuleIDs}}",
+      "Patch": {
+        "LogName": "Patching RequiredCount for rule {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Machines/(BC)13/OutputRules",
+        "TargetField": [ "Triggers", "0", "RequiredCount" ],
+        "Value": "{{FurnaceRequiredMatsValue}}",
+        "When": {
+          "Id": "{{PatchValue}}"
+        }
+      },
+      "When": {
+        "FurnaceRequiredMats|contains=Default": false
+      }
+    },
+    // #endregion
+
+    // #region Heavy Furnace Produce Limits
+    {
+      "LogName": "Heavy Furnace | Set Min Production",
+      "Action": "ForEach",
+      "Values": "{{HeavyFurnaceOutputRuleIDs}}",
+      "Patch": {
+        "LogName": "Patching MinStack for rule {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Machines/HeavyFurnace/OutputRules",
+        "TargetField": [ "MinStack" ],
+        "Value": "{{HeavyFurnaceMinStackValue}}",
+        "When": {
+          "Id": "{{PatchValue}}"
+        }
+      },
+      "When": {
+        "HeavyFurnaceProduceMin|contains=Default": false
+      }
+    },
+    {
+      "LogName": "Heavy Furnace | Set Max Production",
+      "Action": "ForEach",
+      "Values": "{{HeavyFurnaceOutputRuleIDs}}",
+      "Patch": {
+        "LogName": "Patching MaxStack for rule {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Machines/HeavyFurnace/OutputRules",
+        "TargetField": [ "MaxStack" ],
+        "Value": "{{HeavyFurnaceMaxStackValue}}",
+        "When": {
+          "Id": "{{PatchValue}}"
+        }
+      },
+      "When": {
+        "HeavyFurnaceProduceMax|contains=Default": false
+      }
+    },
+    // #endregion
+
+    // #region Heavy Furnace Required materials
+    {
+      "LogName": "Heavy Furnace | Set Required Materials",
+      "Action": "ForEach",
+      "Values": "{{HeavyFurnaceOutputRuleIDs}}",
+      "Patch": {
+        "LogName": "Patching RequiredCount for rule {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Machines/HeavyFurnace/OutputRules",
+        "TargetField": [ "Triggers", "0", "RequiredCount" ],
+        "Value": "{{HeavyFurnaceRequiredMatsValue}}",
+        "When": {
+          "Id": "{{PatchValue}}"
+        }
+      },
+      "When": {
+        "HeavyFurnaceRequiredMats|contains=Default": false
+      }
+    },
+    // #endregion
+
+    // #region Furnace Speed
+    {
+      "LogName": "Furnace | Set Faster Bars",
+      "Action": "ForEach",
+      "Values": "{{FurnaceOutputRuleIDs}}",
+      "Patch": {
+        "LogName": "Patching MinutesUntilReady for rule {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Machines/(BC)13/OutputRules",
+        "TargetField": [ "MinutesUntilReady" ],
+        "Value": "{{Round: {{Query: max(10, {{Data/Machines:'(BC)13':OutputRules:{{PatchValue}}:MinutesUntilReady}} * {{FurnaceSpeedMultiplier}}) }} }}",
+        "When": {
+          "Id": "{{PatchValue}}"
+        }
+      },
+      "When": {
+        "FurnaceFasterBars|contains=Default": false
+      }
+    },
+    // #endregion
+
+    // #region Heavy Furnace Speed
+    {
+      "LogName": "Heavy Furnace | Set Faster Bars",
+      "Action": "ForEach",
+      "Values": "{{HeavyFurnaceOutputRuleIDs}}",
+      "Patch": {
+        "LogName": "Patching MinutesUntilReady for rule {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Machines/HeavyFurnace/OutputRules",
+        "TargetField": [ "MinutesUntilReady" ],
+        "Value": "{{Round: {{Query: max(10, {{Data/Machines:HeavyFurnace:OutputRules:{{PatchValue}}:MinutesUntilReady}} * {{HeavyFurnaceSpeedMultiplier}}) }} }}",
+        "When": {
+          "Id": "{{PatchValue}}"
+        }
+      },
+      "When": {
+        "HeavyFurnaceFasterBars|contains=Default": false
+      }
+    },
+    // #endregion
+
+    // #region Furnace Crafting
+    {
+      "LogName": "Furnace Materials Lessened",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "Fields": {
+        "Furnace": { "0": "378 10 390 15" }
+      },
+      "When": { "FurnaceMaterials": "Lessened Materials" }
+    },
+    {
+      "LogName": "Furnace Materials 5 Copper Ore",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "Fields": {
+        "Furnace": { "0": "378 5" }
+      },
+      "When": { "FurnaceMaterials": "5 Copper Ore" }
+    },
+    {
+      "LogName": "Heavy Furnace Materials Lessened",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "Fields": {
+        "Heavy Furnace": { "0": "(BC)13 1 335 1 390 25" }
+      },
+      "When": { "HeavyFurnaceMaterials": "Lessened Materials" }
+    },
+    {
+      "LogName": "Heavy Furnace Materials 1 Furnace",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "Fields": {
+        "Heavy Furnace": { "0": "(BC)13 1" }
+      },
+      "When": { "HeavyFurnaceMaterials": "1 Furnace" }
+    },
+    // #endregion
+
+    // #region Furnace No Coal
+    {
+      "LogName": "Furnace No Coal",
+      "Action": "EditData",
+      "Target": "Data/Machines/(BC)13",
+      "Fields": {
+        "AdditionalConsumedItems": null
+      },
+      "When": { "FurnaceNoCoal": true }
+    },
+    {
+      "LogName": "Heavy Furnace No Coal",
+      "Action": "EditData",
+      "Target": "Data/Machines/HeavyFurnace",
+      "Fields": {
+        "AdditionalConsumedItems": null
+      },
+      "When": { "HeavyFurnaceNoCoal": true }
+    },
+    // #endregion
+
+    // #region Mineral Sell Price
+    {
+      "LogName": "Minerals | Adjust Sell Price",
+      "Action": "ForEach",
+      "Values": "{{ObjectIDs}}",
+      "Patch": {
+        "LogName": "Patching Price for mineral {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Objects",
+        "TargetField": [ "{{PatchValue}}", "Price" ],
+        "Value": "{{Round: {{Query: {{Data/Objects:{{PatchValue}}:Price}} * {{MineralPriceMultiplier}} }} }}",
+        "When": {
+          "Query: '{{Data/Objects:{{PatchValue}}:Type}}' = 'Minerals'": true
+        }
+      },
+      "When": {
+        "MineralsSellValue|not=Default": true
+      }
     }
     // #endregion
 

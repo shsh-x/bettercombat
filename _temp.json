@@ -1,35 +1,22 @@
-    {
-      "LogName": "Furnace Produce Min 2 Gold Ore",
-      "Action": "EditData",
-      "Target": "Data/Machines",
-      "TargetField": ["(BC)13", "OutputRules", "Default_GoldOre", "OutputItem"],
-      "Fields": {
-        "(O)336": { "MinStack": 2 }
-      },
-      "When": { "Furnace Produce Min": "2" }
+[
+  {
+    "LogName": "PLACEHOLDER: Minerals Sell Value Increase by 10%",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "Fields": {
+      "//": "This block previously contained a list of all minerals with calculated +10% price.",
+      "80": { "Price": "{{Round: {{Query: (25 * 1.10) }} }}" } 
     },
-    {
-      "LogName": "Furnace Produce Min 2 Iridium Ore",
-      "Action": "EditData",
-      "Target": "Data/Machines",
-      "TargetField": [
-        "(BC)13",
-        "OutputRules",
-        "Default_IridiumOre",
-        "OutputItem"
-      ],
-      "Fields": {
-        "(O)337": { "MinStack": 2 }
-      },
-      "When": { "Furnace Produce Min": "2" }
+    "When": { "Minerals Sell Value": "Increase by 10%" }
+  },
+  {
+    "LogName": "PLACEHOLDER: Minerals Sell Value Decrease by 10%",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "Fields": {
+      "//": "This block previously contained a list of all minerals with calculated -10% price.",
+      "80": { "Price": "{{Round: {{Query: (25 - (25 * 0.10)) }} }}" }
     },
-    {
-      "LogName": "Furnace Produce Min 2 Quartz",
-      "Action": "EditData",
-      "Target": "Data/Machines",
-      "TargetField": ["(BC)13", "OutputRules", "Default_Quartz", "OutputItem"],
-      "Fields": {
-        "(O)338": { "MinStack": 2 }
-      },
-      "When": { "Furnace Produce Min": "2" }
-    },
+    "When": { "Minerals Sell Value": "Decrease by 10%" }
+  }
+]
