@@ -10,7 +10,7 @@
     "DamageReceived": {
       "Description": "Adjust the damage you receive from all monsters.",
       "Section": "Combat Difficulty",
-      "AllowValues": "Default, Decrease Damage by 10%, Decrease Damage by 90%, Increase Damage by 10%, Increase Damage by 250%",
+      "AllowValues": "Default, DMG -10%, DMG -25%, DMG -50%, DMG -75%, DMG -90%, DMG +10%, DMG +25%, DMG +50%, DMG +75%, DMG +90%, Lucky Damage (Easy), Lucky Damage (Easier), Lucky Damage (Easiest)",
       "Default": "Default"
     }
   },
@@ -19,6 +19,8 @@
       "Name": "MonsterList",
       "Value": "Green Slime,Dust Spirit,Bat,Frost Bat,Lava Bat,Iridium Bat,Stone Golem,Wilderness Golem,Grub,Fly,Frost Jelly,Sludge,Shadow Guy,Ghost,Carbon Ghost,Duggy,Rock Crab,Lava Crab,Iridium Crab,Skeleton Warrior,Shadow Brute,Shadow Shaman,Skeleton,Skeleton Mage,Metal Head,Spiker,Mummy,Big Slime,Serpent,Pepper Rex,Tiger Slime,Lava Lurk,Hot Head,Magma Sprite,Magma Duggy,Magma Sparker,False Magma Cap,Dwarvish Sentry,Putrid Ghost,Shadow Sniper,Spider,Royal Serpent,Blue Squid,Fireball,Bug"
     },
+
+    // #region Monster Health Multipliers
     {
       "Name": "PercentageHealthMultiplier",
       "Value": "0.10",
@@ -114,28 +116,118 @@
       "Value": "0.20",
       "When": { "MonstersHealth": "Lucky Health (Easiest)", "Query: {{DailyLuck}} > 0.07": true }
     },
+    // #endregion
+
+    // #region Monster Damage Multipliers
     {
       "Name": "DamageMultiplier",
       "Value": "0.90",
-      "When": { "DamageReceived": "Decrease Damage by 10%" }
+      "When": { "DamageReceived": "DMG -10%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "0.75",
+      "When": { "DamageReceived": "DMG -25%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "0.50",
+      "When": { "DamageReceived": "DMG -50%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "0.25",
+      "When": { "DamageReceived": "DMG -75%" }
     },
     {
       "Name": "DamageMultiplier",
       "Value": "0.10",
-      "When": { "DamageReceived": "Decrease Damage by 90%" }
+      "When": { "DamageReceived": "DMG -90%" }
     },
     {
       "Name": "DamageMultiplier",
       "Value": "1.10",
-      "When": { "DamageReceived": "Increase Damage by 10%" }
+      "When": { "DamageReceived": "DMG +10%" }
     },
     {
       "Name": "DamageMultiplier",
-      "Value": "3.50",
-      "When": { "DamageReceived": "Increase Damage by 250%" }
+      "Value": "1.25",
+      "When": { "DamageReceived": "DMG +25%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "1.50",
+      "When": { "DamageReceived": "DMG +50%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "1.75",
+      "When": { "DamageReceived": "DMG +75%" }
+    },
+    {
+      "Name": "DamageMultiplier",
+      "Value": "1.90",
+      "When": { "DamageReceived": "DMG +90%" }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "1.0",
+      "When": { "DamageReceived|contains=Lucky": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "1.25",
+      "When": { "DamageReceived": "Lucky Damage (Easy)", "Query: {{DailyLuck}} < -0.07": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "1.15",
+      "When": { "DamageReceived": "Lucky Damage (Easy)", "Query: {{DailyLuck}} >= -0.07 AND {{DailyLuck}} < -0.02": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "0.85",
+      "When": { "DamageReceived": "Lucky Damage (Easy)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "0.75",
+      "When": { "DamageReceived": "Lucky Damage (Easy)", "Query: {{DailyLuck}} > 0.07": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "1.15",
+      "When": { "DamageReceived": "Lucky Damage (Easier)", "Query: {{DailyLuck}} < -0.07": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "1.05",
+      "When": { "DamageReceived": "Lucky Damage (Easier)", "Query: {{DailyLuck}} >= -0.07 AND {{DailyLuck}} < -0.02": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "0.75",
+      "When": { "DamageReceived": "Lucky Damage (Easier)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "0.50",
+      "When": { "DamageReceived": "Lucky Damage (Easier)", "Query: {{DailyLuck}} > 0.07": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "0.50",
+      "When": { "DamageReceived": "Lucky Damage (Easiest)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true }
+    },
+    {
+      "Name": "LuckyDamageMultiplier",
+      "Value": "0.20",
+      "When": { "DamageReceived": "Lucky Damage (Easiest)", "Query: {{DailyLuck}} > 0.07": true }
     }
+    // #endregion
   ],
   "Changes": [
+    // #region Monster Health Changes
     {
       "LogName": "Monsters Health Adjustment (Percentage)",
       "Action": "ForEach",
@@ -170,8 +262,11 @@
         "MonstersHealth|contains=Lucky": true
       }
     },
+    // #endregion
+
+    // #region Monster Damage Changes
     {
-      "LogName": "Monsters Damage Adjustment",
+      "LogName": "Monsters Damage Adjustment (Percentage)",
       "Action": "ForEach",
       "Values": "{{MonsterList}}",
       "Patch": {
@@ -182,9 +277,28 @@
         "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:1}} * {{DamageMultiplier}} }} }}"
       },
       "When": {
-        "DamageReceived": "Default",
-        "operator": "Not"
+        "DamageReceived|contains=DMG": true
+      }
+    },
+    {
+      "LogName": "Monsters Damage Adjustment (Lucky)",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating damage for {{PatchValue}} based on luck",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "1" ],
+        "Value": "{{Round: {{Query: {{Data/Monsters:{{PatchValue}}:1}} * {{LuckyDamageMultiplier}} }} }}",
+        "When": {
+            "LuckyDamageMultiplier": "1.0",
+            "operator": "Not"
+        }
+      },
+      "When": {
+        "DamageReceived|contains=Lucky": true
       }
     }
+    // #endregion
   ]
 }
