@@ -48,6 +48,24 @@
       "Section": "Combat Difficulty",
       "AllowValues": "Disabled, 0.05%, 0.1%, 0.5%, 1%, 2%, 5%",
       "Default": "Disabled"
+    },
+    "LuckyAdventuringBuffs": {
+      "Description": "Random combat and mining buffs will have a 20% chance to be activated as a passive buff every day. The stats of the buff will be randomized. To see which buffs are applied for the day, hover over the Blessing of Combat (Swords) buff at the top right of the screen while in game.",
+      "Section": "Adventuring Buffs",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "WeaponCritChance": {
+      "Description": "Adjust the critical hit chance for all weapons.",
+      "Section": "Weapon Modifications",
+      "AllowValues": "Default, +5%, +10%, +15%, +20%, +25%, +50%, +75%",
+      "Default": "Default"
+    },
+    "WeaponCritPower": {
+      "Description": "Adjust the critical damage multiplier for all weapons.",
+      "Section": "Weapon Modifications",
+      "AllowValues": "Default, x2, x3, x4, x5, x10, x15, x20",
+      "Default": "Default"
     }
   },
   "DynamicTokens": [
@@ -55,6 +73,30 @@
       "Name": "MonsterList",
       "Value": "{{Data/Monsters | keys}}"
     },
+    {
+      "Name": "WeaponList",
+      "Value": "{{Data/Weapons | keys}}"
+    },
+
+    // #region Weapon Crit Chance Addons
+    { "Name": "CritChanceValue", "Value": "0.05", "When": { "WeaponCritChance": "+5%" } },
+    { "Name": "CritChanceValue", "Value": "0.10", "When": { "WeaponCritChance": "+10%" } },
+    { "Name": "CritChanceValue", "Value": "0.15", "When": { "WeaponCritChance": "+15%" } },
+    { "Name": "CritChanceValue", "Value": "0.20", "When": { "WeaponCritChance": "+20%" } },
+    { "Name": "CritChanceValue", "Value": "0.25", "When": { "WeaponCritChance": "+25%" } },
+    { "Name": "CritChanceValue", "Value": "0.50", "When": { "WeaponCritChance": "+50%" } },
+    { "Name": "CritChanceValue", "Value": "0.75", "When": { "WeaponCritChance": "+75%" } },
+    // #endregion
+
+    // #region Weapon Crit Power Multipliers
+    { "Name": "CritPowerMultiplier", "Value": "2", "When": { "WeaponCritPower": "x2" } },
+    { "Name": "CritPowerMultiplier", "Value": "3", "When": { "WeaponCritPower": "x3" } },
+    { "Name": "CritPowerMultiplier", "Value": "4", "When": { "WeaponCritPower": "x4" } },
+    { "Name": "CritPowerMultiplier", "Value": "5", "When": { "WeaponCritPower": "x5" } },
+    { "Name": "CritPowerMultiplier", "Value": "10", "When": { "WeaponCritPower": "x10" } },
+    { "Name": "CritPowerMultiplier", "Value": "15", "When": { "WeaponCritPower": "x15" } },
+    { "Name": "CritPowerMultiplier", "Value": "20", "When": { "WeaponCritPower": "x20" } },
+    // #endregion
 
     // #region Monster Health Multipliers
     {
@@ -564,7 +606,7 @@
     { "Name": "FinalLoot_Royal_Serpent", "Value": "{{First: {{SharedLoot_Royal_Serpent | when: { 'SharedLootEnabled': 'true' } }} | {{NormalLoot_Royal_Serpent}} }}{{PrismaticShardAddon}}" },
     { "Name": "NormalLoot_Blue_Squid", "Value": "768 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 814 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 288 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
     { "Name": "SharedLoot_Blue_Squid", "Value": "768 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 814 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 288 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }}" },
-    { "Name": "FinalLoot_Blue_Squid", "Value": "{{First: {{SharedLoot_Blue_Squid | when: { 'SharedLootEnabled': 'true' } }} | {{NormalLoot_Blue_Squid}} }}{{PrismaticShardAddon}}" },
+    { "Name": "FinalLoot_Blue_Squid", "Value": "{{First: {{SharedLoot_Blue_Squid | when: { 'SharedLootEnabled': 'true' } }} | {{NormalLoot_Blue_Squid}} }}{{PrismaticShardAddon}}" }
     // #endregion
 
   ],
@@ -768,6 +810,88 @@
       },
       "When": {
         "IsLootModificationEnabled": "true"
+      }
+    },
+    // #endregion
+
+    // #region Lucky Adventuring Buffs
+    {
+      "LogName": "Lucky Adventuring Buffs",
+      "Action": "EditData",
+      "Target": "Data/Buffs",
+      "Entries": {
+        "CombatMadeEasy_BlessingOfCombat": {
+          "DisplayName": "Blessing of Combat",
+          "Description": "A blessing from a Legacy to make your combat life easier!",
+          "IsDebuff": false,
+          "GlowColor": null,
+          "Duration": -2,
+          "MaxDuration": -1,
+          "IconTexture": "TileSheets\\BuffsIcons",
+          "IconSpriteIndex": 20,
+          "Effects": {
+            "MiningLevel": "{{Random:0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 4.0, 5.0, 10.0}}",
+            "LuckLevel": "{{Random:0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 4.0, 5.0}}",
+            "MaxStamina": "{{Random:10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 15, 20, 20, 20, 20, 20, 20, 25, 25, 25, 30, 35, 40, 45, 50, 100}}",
+            "MagneticRadius": "{{Random:0, 0, 0, 0, 0, 0, 0, 0, 32, 64}}",
+            "Speed": "{{Random:0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 4.0, 5.0}}",
+            "Defense": "{{Random:0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 4.0, 5.0, 10.0}}",
+            "Attack": "{{Random:0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 4.0, 5.0, 10.0}}"
+          },
+          "ActionsOnApply": null,
+          "CustomFields": null
+        }
+      },
+      "When": { "LuckyAdventuringBuffs": true }
+    },
+    {
+      "LogName": "Lucky Adventuring Buffs Action",
+      "Action": "EditData",
+      "Target": "Data/TriggerActions",
+      "Entries": {
+        "CombatMadeEasy_BlessingOfCombat": {
+          "Id": "CombatMadeEasy_BlessingOfCombat",
+          "Trigger": "DayStarted",
+          "Condition": "RANDOM 0.20",
+          "HostOnly": false,
+          "Action": "AddBuff CombatMadeEasy_BlessingOfCombat",
+          "Actions": null,
+          "MarkActionApplied": false
+        }
+      },
+      "When": { "LuckyAdventuringBuffs": true }
+    },
+    // #endregion
+
+    // #region Weapon Stat Changes
+    {
+      "LogName": "Weapons Critical Chance Adjustment",
+      "Action": "ForEach",
+      "Values": "{{WeaponList}}",
+      "Patch": {
+        "LogName": "Updating crit chance for weapon {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Weapons",
+        "TargetField": [ "{{PatchValue}}", "CritChance" ],
+        "Value": "{{Query: {{Data/Weapons:{{PatchValue}}:CritChance}} + {{CritChanceValue}} }}"
+      },
+      "When": {
+        "WeaponCritChance|not=Default": true
+      }
+    },
+    {
+      "LogName": "Weapons Critical Power Adjustment",
+      "Action": "ForEach",
+      "Values": "{{WeaponList}}",
+      "Patch": {
+        "LogName": "Updating crit power for weapon {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Weapons",
+        "TargetField": [ "{{PatchValue}}", "CritMultiplier" ],
+        "Value": "{{Query: {{Data/Weapons:{{PatchValue}}:CritMultiplier}} * {{CritPowerMultiplier}} }}"
+      },
+      "When": {
+        "WeaponCritPower|not=Default": true
       }
     }
     // #endregion
