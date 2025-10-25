@@ -68,13 +68,13 @@
       "Default": "false"
     },
     "All Weapons Crit Chance": {
-      "Description": "Select the critical hit probability for all weapons. Keep in mind that modifying this setting will only impact newly obtained weapons once it’s activated! The range spans from 5% to 99% chance. Scroll down for additional options.",
+      "Description": "REWORKED, IGNORE",
       "Section": "Weapon Modifications",
       "AllowValues": "Default, 5% Chance, 6% Chance, 7% Chance, 8% Chance, 9% Chance, 10% Chance, 15% Chance, 20% Chance, 25% Chance, 30% Chance, 35% Chance, 40% Chance, 45% Chance, 50% Chance, 55% Chance, 60% Chance, 65% Chance, 70% Chance, 75% Chance, 80% Chance, 85% Chance, 90% Chance, 95% Chance, 99% Chance",
       "Default": "Default"
     },
     "All Weapons Crit Multiplier": {
-      "Description": "Select the critical damage multiplier for all weapons. Keep in mind that modifying this setting will only impact newly obtained weapons once it’s activated! The range spans from 4X to 30X multiplier. Scroll down for additional options.",
+      "Description": "REWORKED, IGNORE",
       "Section": "Weapon Modifications",
       "AllowValues": "Default (Most 3X), 4X Multiplier, 5X Multiplier, 6X Multiplier, 7X Multiplier, 8X Multiplier, 9X Multiplier, 10X Multiplier, 11X Multiplier, 12X Multiplier, 13X Multiplier, 14X Multiplier, 15X Multiplier, 16X Multiplier, 17X Multiplier, 18X Multiplier, 19X Multiplier, 20X Multiplier, 21X Multiplier, 22X Multiplier, 23X Multiplier, 24X Multiplier, 25X Multiplier, 26X Multiplier, 27X Multiplier, 28X Multiplier, 29X Multiplier, 30X Multiplier",
       "Default": "Default (Most 3X)"
@@ -693,7 +693,7 @@
     },
     // #endregion
 
-    // #region COMPATIBILITY PATCHES - REWORK LATER
+                        // #region COMPATIBILITY PATCHES - REWORK LATER
     //Compatibility Alchemistry
     {
       "LogName": "Alchemistry Compatibility",
@@ -994,229 +994,65 @@
     },
     // #endregion
 
-
-
-
+    // #region PLACEHOLDER: Weapon Speed
     {
-      "LogName": "Slow Weapons Normal Speed",
+      "LogName": "PLACEHOLDER: Slow Weapons Normal Speed",
       "Action": "EditData",
       "Target": "Data/Weapons",
       "Fields": {
+        "//": "This section previously contained a hardcoded list of weapon IDs considered to be 'slow'. This has been replaced by a dynamic ForEach patch that iterates over all weapons and applies the change only if the weapon's base speed is less than 0.",
         "2": { "Speed": 0 },
-        "6": { "Speed": 0 },
-        "8": { "Speed": 0 },
-        "10": { "Speed": 0 },
-        "14": { "Speed": 0 },
-        "24": { "Speed": 0 },
-        "25": { "Speed": 0 },
-        "26": { "Speed": 0 },
-        "27": { "Speed": 0 },
-        "28": { "Speed": 0 },
-        "29": { "Speed": 0 },
-        "30": { "Speed": 0 },
-        "31": { "Speed": 0 },
-        "46": { "Speed": 0 },
-        "52": { "Speed": 0 },
-        "55": { "Speed": 0 },
-        "58": { "Speed": 0 },
-        "60": { "Speed": 0 },
-        "63": { "Speed": 0 }
+        "6": { "Speed": 0 }
       },
       "When": {
-        "Slow Weapons Normal Speed": true,
-        "All Weapons Fast Speed": false
-      }
+        "WeaponSpeed": "Normalize Slow"
+     }
     },
     {
-      "LogName": "All Weapons Fast Speed",
+      "LogName": "PLACEHOLDER: All Weapons Fast Speed",
       "Action": "EditData",
       "Target": "Data/Weapons",
       "Fields": {
+        "//": "This section previously contained a massive, hardcoded patch that listed every weapon ID to set its speed to 50. This has been replaced by a single, efficient ForEach patch that uses the '{{WeaponList}}' token.",
         "0": { "Speed": 50 },
-        "1": { "Speed": 50 },
-        "2": { "Speed": 50 },
-        "3": { "Speed": 50 },
-        "4": { "Speed": 50 },
-        "5": { "Speed": 50 },
-        "6": { "Speed": 50 },
-        "7": { "Speed": 50 },
-        "8": { "Speed": 50 },
-        "9": { "Speed": 50 },
-        "10": { "Speed": 50 },
-        "11": { "Speed": 50 },
-        "12": { "Speed": 50 },
-        "13": { "Speed": 50 },
-        "14": { "Speed": 50 },
-        "15": { "Speed": 50 },
-        "16": { "Speed": 50 },
-        "17": { "Speed": 50 },
-        "18": { "Speed": 50 },
-        "19": { "Speed": 50 },
-        "20": { "Speed": 50 },
-        "21": { "Speed": 50 },
-        "22": { "Speed": 50 },
-        "23": { "Speed": 50 },
-        "24": { "Speed": 50 },
-        "25": { "Speed": 50 },
-        "26": { "Speed": 50 },
-        "27": { "Speed": 50 },
-        "28": { "Speed": 50 },
-        "29": { "Speed": 50 },
-        "30": { "Speed": 50 },
-        "31": { "Speed": 50 },
-        "32": { "Speed": 50 },
-        "33": { "Speed": 50 },
-        "34": { "Speed": 50 },
-        "35": { "Speed": 50 },
-        "36": { "Speed": 50 },
-        "37": { "Speed": 50 },
-        "38": { "Speed": 50 },
-        "39": { "Speed": 50 },
-        "40": { "Speed": 50 },
-        "41": { "Speed": 50 },
-        "42": { "Speed": 50 },
-        "43": { "Speed": 50 },
-        "44": { "Speed": 50 },
-        "45": { "Speed": 50 },
-        "46": { "Speed": 50 },
-        "47": { "Speed": 50 },
-        "48": { "Speed": 50 },
-        "49": { "Speed": 50 },
-        "50": { "Speed": 50 },
-        "51": { "Speed": 50 },
-        "52": { "Speed": 50 },
-        "53": { "Speed": 50 },
-        "54": { "Speed": 50 },
-        "55": { "Speed": 50 },
-        "56": { "Speed": 50 },
-        "57": { "Speed": 50 },
-        "58": { "Speed": 50 },
-        "59": { "Speed": 50 },
-        "60": { "Speed": 50 },
-        "61": { "Speed": 50 },
-        "62": { "Speed": 50 },
-        "63": { "Speed": 50 },
-        "64": { "Speed": 50 },
-        "65": { "Speed": 50 },
-        "66": { "Speed": 50 }
-      },
-      "When": { "All Weapons Fast Speed": true }
-    },
-    {
-      "LogName": "Slow Weapons Normal Speed",
-      "Action": "EditData",
-      "Target": "Data/Weapons",
-      "Fields": {
-        "2": { "Speed": 0 },
-        "6": { "Speed": 0 },
-        "8": { "Speed": 0 },
-        "10": { "Speed": 0 },
-        "14": { "Speed": 0 },
-        "24": { "Speed": 0 },
-        "25": { "Speed": 0 },
-        "26": { "Speed": 0 },
-        "27": { "Speed": 0 },
-        "28": { "Speed": 0 },
-        "29": { "Speed": 0 },
-        "30": { "Speed": 0 },
-        "31": { "Speed": 0 },
-        "46": { "Speed": 0 },
-        "52": { "Speed": 0 },
-        "55": { "Speed": 0 },
-        "58": { "Speed": 0 },
-        "60": { "Speed": 0 },
-        "63": { "Speed": 0 }
+        "1": { "Speed": 50 }
       },
       "When": {
-        "Slow Weapons Normal Speed": true,
-        "All Weapons Fast Speed": false
+        "WeaponSpeed": "Very Fast"
       }
     },
+    // #endregion
+
+    // #region PLACEHOLDER: Weapons Not Lost On Death
     {
-      "LogName": "Weapons Not Lost On Death",
+      "LogName": "PLACEHOLDER: Weapons Not Lost On Death",
       "Action": "EditData",
       "Target": "Data/Weapons",
       "Fields": {
-        "0": { "CanBeLostOnDeath": false },
-        "1": { "CanBeLostOnDeath": false },
-        "2": { "CanBeLostOnDeath": false },
-        "3": { "CanBeLostOnDeath": false },
-        "4": { "CanBeLostOnDeath": false },
-        "5": { "CanBeLostOnDeath": false },
-        "6": { "CanBeLostOnDeath": false },
-        "7": { "CanBeLostOnDeath": false },
-        "8": { "CanBeLostOnDeath": false },
-        "9": { "CanBeLostOnDeath": false },
-        "10": { "CanBeLostOnDeath": false },
-        "11": { "CanBeLostOnDeath": false },
-        "12": { "CanBeLostOnDeath": false },
-        "13": { "CanBeLostOnDeath": false },
-        "14": { "CanBeLostOnDeath": false },
-        "15": { "CanBeLostOnDeath": false },
-        "16": { "CanBeLostOnDeath": false },
-        "17": { "CanBeLostOnDeath": false },
-        "18": { "CanBeLostOnDeath": false },
-        "19": { "CanBeLostOnDeath": false },
-        "20": { "CanBeLostOnDeath": false },
-        "21": { "CanBeLostOnDeath": false },
-        "22": { "CanBeLostOnDeath": false },
-        "23": { "CanBeLostOnDeath": false },
-        "24": { "CanBeLostOnDeath": false },
-        "25": { "CanBeLostOnDeath": false },
-        "26": { "CanBeLostOnDeath": false },
-        "27": { "CanBeLostOnDeath": false },
-        "28": { "CanBeLostOnDeath": false },
-        "29": { "CanBeLostOnDeath": false },
-        "30": { "CanBeLostOnDeath": false },
-        "31": { "CanBeLostOnDeath": false },
-        "32": { "CanBeLostOnDeath": false },
-        "33": { "CanBeLostOnDeath": false },
-        "34": { "CanBeLostOnDeath": false },
-        "35": { "CanBeLostOnDeath": false },
-        "36": { "CanBeLostOnDeath": false },
-        "37": { "CanBeLostOnDeath": false },
-        "38": { "CanBeLostOnDeath": false },
-        "39": { "CanBeLostOnDeath": false },
-        "40": { "CanBeLostOnDeath": false },
-        "41": { "CanBeLostOnDeath": false },
-        "42": { "CanBeLostOnDeath": false },
-        "43": { "CanBeLostOnDeath": false },
-        "44": { "CanBeLostOnDeath": false },
-        "45": { "CanBeLostOnDeath": false },
-        "46": { "CanBeLostOnDeath": false },
-        "47": { "CanBeLostOnDeath": false },
-        "48": { "CanBeLostOnDeath": false },
-        "49": { "CanBeLostOnDeath": false },
-        "50": { "CanBeLostOnDeath": false },
-        "51": { "CanBeLostOnDeath": false },
-        "52": { "CanBeLostOnDeath": false },
-        "53": { "CanBeLostOnDeath": false },
-        "54": { "CanBeLostOnDeath": false },
-        "55": { "CanBeLostOnDeath": false },
-        "56": { "CanBeLostOnDeath": false },
-        "57": { "CanBeLostOnDeath": false },
-        "58": { "CanBeLostOnDeath": false },
-        "59": { "CanBeLostOnDeath": false },
-        "60": { "CanBeLostOnDeath": false },
-        "61": { "CanBeLostOnDeath": false },
-        "62": { "CanBeLostOnDeath": false },
-        "63": { "CanBeLostOnDeath": false },
-        "64": { "CanBeLostOnDeath": false },
-        "65": { "CanBeLostOnDeath": false },
-        "66": { "CanBeLostOnDeath": false }
+        "//": "This section previously contained a massive, hardcoded patch that listed every weapon ID to set its 'CanBeLostOnDeath' flag to false. This has been replaced by a single, efficient ForEach patch that uses the '{{WeaponList}}' token.",
+        "0": { "CanBeLostOnDeath": false }
       },
-      "When": { "Weapons Not Lost On Death": true }
+      "When": { "WeaponsNotLostOnDeath": true }
     },
+    // #endregion
+
+    // #region PLACEHOLDER: Scythe Damage
     {
-      "LogName": "Gold/Iridium Scythe Damage",
+      "LogName": "PLACEHOLDER: Gold/Iridium Scythe Damage",
       "Action": "EditData",
       "Target": "Data/Weapons",
       "Fields": {
+        "//": "This patch is for a very specific change and was already optimal, so it was ported as-is.",
         "53": { "MinDamage": 45, "MaxDamage": 55 },
         "66": { "MinDamage": 65, "MaxDamage": 75 }
       },
-      "When": { "Gold/Iridium Scythe Damage": true }
+      "When": { "ScytheDamage": true }
     },
+    // #endregion
+
+
+
+    // #region FOOD BUFFS
     {
       "LogName": "Banana Pudding Duration",
       "Action": "EditData",
@@ -4773,7 +4609,10 @@
       },
       "When": { "Magic Rock Candy Buffs": "Stats +25" }
     },
-    {
+
+    // #endregion
+
+    { // All bombs materials - lessened materials
       "LogName": "All Bombs Materials Lessened",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -4784,7 +4623,7 @@
       },
       "When": { "All Bombs Materials": "Lessened Materials" }
     },
-    {
+    { // All bombs materials - 1 ore
       "LogName": "All Bombs Materials 1 Ore",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -4795,6 +4634,10 @@
       },
       "When": { "All Bombs Materials": "1 Ore" }
     },
+
+
+
+    // #region Monster Musk Recipes
     {
       "LogName": "Monster Musk Ingredients 25 Slime/Wings",
       "Action": "EditData",
@@ -4849,6 +4692,9 @@
       },
       "When": { "Monster Musk Ingredients": "1 Slime/Wing" }
     },
+    // #endregion
+
+    // #region Magic Rock Candy Recipes and conditions
     {
       "LogName": "Magic Rock Candy Recipe Level 9",
       "Action": "EditData",
@@ -4894,7 +4740,11 @@
       },
       "When": { "Magic Rock Candy Ingredients": "1 Diamond" }
     },
-    {
+    // #endregion
+
+
+
+    { // All rings craftable
       "LogName": "Craft All Rings In The Game",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -4924,7 +4774,7 @@
       },
       "When": { "Craft All Rings (REQ)": true }
     },
-    {
+    { // All rings materials lessened
       "LogName": "All Rings Materials Lessened",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -4957,7 +4807,7 @@
         "Craft All Rings (REQ)": true
       }
     },
-    {
+    { // All rings materials 1 copper bar
       "LogName": "All Rings Materials 1 Copper Bar",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -4990,7 +4840,7 @@
         "Craft All Rings (REQ)": true
       }
     },
-    {
+    { // All rings combat level 1
       "LogName": "All Rings Combat Level 1",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -5023,6 +4873,8 @@
         "Craft All Rings (REQ)": true
       }
     },
+
+    // #region Furnace speed
     {
       "LogName": "Furnace Faster Bars 25% Faster",
       "Action": "EditData",
@@ -5087,7 +4939,11 @@
       },
       "When": { "Furnace Faster Bars": "99% Faster" }
     },
-    {
+    // #endregion
+
+
+
+    { // Furnace Materials - Lessened Materials
       "LogName": "Furnace Materials Lessened",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -5096,7 +4952,7 @@
       },
       "When": { "Furnace Materials": "Lessened Materials" }
     },
-    {
+    { // Furnace Materials - 5 Copper Ore
       "LogName": "Furnace Materials 5 Copper Ore",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -5105,7 +4961,7 @@
       },
       "When": { "Furnace Materials": "5 Copper Ore" }
     },
-    {
+    { // Furnace No Coal consumption
       "LogName": "Furnace No Coal",
       "Action": "EditData",
       "Target": "Data/Machines",
@@ -5116,6 +4972,10 @@
       },
       "When": { "Furnace No Coal": true }
     },
+
+
+
+    // #region Furnace Produce limits
     {
       "LogName": "Furnace Produce Min 2 Copper Ore",
       "Action": "EditData",
@@ -8356,6 +8216,9 @@
       },
       "When": { "Furnace Produce Max": "100" }
     },
+    // #endregion
+
+    // #region
     {
       "LogName": "Furnace Required Mats 2 Copper Ore",
       "Action": "EditData",
@@ -9801,6 +9664,9 @@
       },
       "When": { "Furnace Required Mats.": "100" }
     },
+    // #endregion
+
+    // #region Heavy Furnace speed
     {
       "LogName": "Heavy Furnace Faster Bars 25% Faster",
       "Action": "EditData",
@@ -9865,7 +9731,11 @@
       },
       "When": { "Heavy Furnace Faster Bars": "99% Faster" }
     },
-    {
+    // #endregion
+
+
+
+    { // Heavy Furnace Materials - lessened materials
       "LogName": "Heavy Furnace Materials Lessened",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -9874,7 +9744,7 @@
       },
       "When": { "Heavy Furnace Materials": "Lessened Materials" }
     },
-    {
+    { // Heavy Furnace materials - 1 Furnace
       "LogName": "Heavy Furnace Materials 1 Furnace",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -9883,7 +9753,7 @@
       },
       "When": { "Heavy Furnace Materials": "1 Furnace" }
     },
-    {
+    { // Heavy Furnace no coal consumption
       "LogName": "Heavy Furnace No Coal",
       "Action": "EditData",
       "Target": "Data/Machines",
@@ -9894,6 +9764,8 @@
       },
       "When": { "Heavy Furnace No Coal": true }
     },
+
+    // #region Heavy Furnace produce limits
     {
       "LogName": "Heavy Furnace Produce Min 2 Copper Ore",
       "Action": "EditData",
@@ -13674,6 +13546,9 @@
       },
       "When": { "Heavy Furnace Produce Max": "100" }
     },
+    // #endregion
+
+    // #region Heavy Furnace Required Mats
     {
       "LogName": "Heavy Furnace Required Mats 2 Copper Ore",
       "Action": "EditData",
@@ -15459,7 +15334,11 @@
       },
       "When": { "Heavy Furnace Required Mats.": "100" }
     },
-    {
+    // #endregion
+
+
+
+    { // Charcoal Kiln Materials - lessened materials
       "LogName": "Charcoal Kiln Materials Lessened",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -15468,7 +15347,7 @@
       },
       "When": { "Charcoal Kiln Materials": "Lessened Materials" }
     },
-    {
+    { // Charcoal Kiln Materials - 10 Wood
       "LogName": "Charcoal Kiln Materials 10 Wood",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -15477,7 +15356,7 @@
       },
       "When": { "Charcoal Kiln Materials": "10 Wood" }
     },
-    {
+    { // Charcoal Kiln Availability Level 1
       "LogName": "Charcoal Kiln Availability Level 1",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -15486,6 +15365,10 @@
       },
       "When": { "Charcoal Kiln Availability": "Foraging Level 1" }
     },
+
+   
+    
+    // #region Charcoal Kiln Faster Coal
     {
       "LogName": "Charcoal Kiln Faster Coal 20 Minutes",
       "Action": "EditData",
@@ -15506,6 +15389,9 @@
       },
       "When": { "Charcoal Kiln Faster Coal": "10 Minutes" }
     },
+    // #endregion
+
+    // #region Charcoal Kiln Produce limits
     {
       "LogName": "Charcoal Kiln Produce Min 2",
       "Action": "EditData",
@@ -15866,6 +15752,9 @@
       },
       "When": { "Charcoal Kiln Produce Max": "100" }
     },
+    // #endregion
+
+    // #region Charcoal Kiln Required Mats
     {
       "LogName": "Charcoal Kiln Required Mats. 1",
       "Action": "EditData",
@@ -16046,6 +15935,9 @@
       },
       "When": { "Charcoal Kiln Required Mats.": "100" }
     },
+    // #endregion
+
+    // #region Geode Crusher faster times
     {
       "LogName": "Geode Crusher Faster 50 Minutes",
       "Action": "EditData",
@@ -16096,7 +15988,11 @@
       },
       "When": { "Geode Crusher Faster": "10 Minutes" }
     },
-    {
+    // #endregion
+
+
+
+    { // Geode Crusher materials - lessened materials
       "LogName": "Geode Crusher Materials Lessened",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -16105,7 +16001,7 @@
       },
       "When": { "Geode Crusher Materials": "Lessened Materials" }
     },
-    {
+    { // Geode Crusher materials - 1 Gold Bar
       "LogName": "Geode Crusher Materials 1 Gold Bar",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -16114,6 +16010,10 @@
       },
       "When": { "Geode Crusher Materials": "1 Gold Bar" }
     },
+
+
+
+    // #region Geode Crusher Produce limits
     {
       "LogName": "Geode Crusher Produce Min 2",
       "Action": "EditData",
@@ -16474,6 +16374,9 @@
       },
       "When": { "Geode Crusher Produce Max": "100" }
     },
+    // #endregion
+
+    // #region Geode Crusher minimum materials required
     {
       "LogName": "Geode Crusher Required Mats. 2",
       "Action": "EditData",
@@ -16654,6 +16557,9 @@
       },
       "When": { "Geode Crusher Required Mats.": "100" }
     },
+    // #endregion
+    
+    // #region Crystalarium speed
     {
       "LogName": "Crystalarium Faster Standard Gems 25% Faster",
       "Action": "EditData",
@@ -16774,7 +16680,11 @@
       },
       "When": { "Crystalarium Faster Gems": "99% Faster" }
     },
-    {
+    // #endregion
+
+
+
+    { // Crystalarium Materials - Lessened Materials
       "LogName": "Cyrstalarium Materials Lessened",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -16783,7 +16693,7 @@
       },
       "When": { "Crystalarium Materials": "Lessened Materials" }
     },
-    {
+    { // Crystalarium Materials - 5 Copper Ore
       "LogName": "Crystalarium Materials 5 Copper Ore",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
@@ -16792,6 +16702,10 @@
       },
       "When": { "Crystalarium Materials": "1 Gold Bar" }
     },
+
+
+
+    // #region Crystalarium Mining Levels
     {
       "LogName": "Crystalarium Mining Level 8",
       "Action": "EditData",
@@ -16855,6 +16769,9 @@
       },
       "When": { "Crystalarium Availability": "Mining Level 1" }
     },
+    // #endregion
+
+    // #region Crystalarium Produce limits
     {
       "LogName": "Crystalarium Produce Min 2",
       "Action": "EditData",
@@ -17215,7 +17132,10 @@
       },
       "When": { "Crystalarium Produce Max": "100" }
     },
-    {
+    // #endregion
+
+
+    { // add prismatic shard to crystalarium accepted items ??
       "LogName": "Crystalarium Prismatic Shards",
       "Action": "EditData",
       "Target": "Data/Machines",
@@ -17231,7 +17151,7 @@
       },
       "When": { "Crystalarium Prismatic Shards": true }
     },
-    {
+    { // add prismatic shard to crystalarium accepted items ??
       "LogName": "Crystalarium Prismatic Shards Context Tag",
       "Action": "EditData",
       "Target": "Data/Machines",
@@ -17243,6 +17163,10 @@
       },
       "When": { "Crystalarium Prismatic Shards": true }
     },
+
+
+
+    // #region Crystalarium Prismatic Shard speed modifiers
     {
       "LogName": "Crystalarium Prismatic Shards 25% Faster",
       "Action": "EditData",
@@ -17295,6 +17219,9 @@
         "Crystalarium Faster Gems": "99% Faster"
       }
     },
+    // #endregion
+
+    // #region Prismatic Shard Drops from Omni Geode chances
     {
       "LogName": "Omni Geode Prismatic Shards 1%",
       "Action": "EditData",
@@ -17575,6 +17502,9 @@
       },
       "When": { "Omni Geode Prismatic Shards": "99% Chance" }
     },
+    // #endregion
+
+    // #region Mineral Sell Value Increase
     {
       "LogName": "Minerals Sell Value Increase by 10%",
       "Action": "EditData",
@@ -20991,6 +20921,9 @@
       },
       "When": { "Minerals Sell Value": "Decrease by 99%" }
     },
+    // #endregion
+
+    // #region Ore and Bars Sell Value Increase
     {
       "LogName": "Ore and Bars Sell Value Increase by 10%",
       "Action": "EditData",
@@ -22055,7 +21988,11 @@
       },
       "When": { "Ore And Bars Sell Value": "Decrease by 99%" }
     },
-    {
+    // #endregion
+
+
+
+    { // Blacksmith's opening all days 
       "LogName": "Blacksmith Open All Days",
       "Action": "EditData",
       "Target": "Characters/schedules/Clint",
@@ -22064,7 +22001,7 @@
       },
       "When": { "Blacksmith Open All Days": true }
     },
-    {
+    { // Blacksmith's Iridium Ore
       "LogName": "Blacksmith's Iridium Ore",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -22108,7 +22045,7 @@
       },
       "MoveEntries": [{ "Id": "(O)386", "AfterId": "(O)384" }]
     },
-    {
+    { // Blacksmith's Iridium Ore Visit Skull Cavern Condition
       "LogName": "Blacksmith's Iridium Ore Visited Skull Cavern",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -22120,6 +22057,10 @@
       },
       "When": { "Blacksmith's Iridium Ore": "Visited Skull Cavern" }
     },
+
+
+
+    // #region Blacksmith's Iridium Ore Price Decreases
     {
       "LogName": "Blacksmith's Iridium Ore Prices 10% Decrease",
       "Action": "EditData",
@@ -22250,7 +22191,11 @@
         "Blacksmith's Ore Prices": "Decrease by 99%"
       }
     },
-    {
+    // #endregion
+    
+
+
+    { // Blacksmith's Radioactive Ore
       "LogName": "Blacksmith's Radioact. Ore",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -22294,7 +22239,7 @@
       },
       "MoveEntries": [{ "Id": "(O)909", "AfterId": "(O)384" }]
     },
-    {
+    { // Blacksmith's Radioactive Ore Visit Qi's Walnut Room Condition
       "LogName": "Blacksmith's Radioact. Ore",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -22306,6 +22251,9 @@
       },
       "When": { "Blacksmith's Radioact. Ore": "Visited Qi's Walnut Room" }
     },
+
+
+    // #region Blacksmith's Radioactive Ore Price Decreases
     {
       "LogName": "Blacksmith's Radioact. Ore Prices 10% Decrease",
       "Action": "EditData",
@@ -22436,7 +22384,11 @@
         "Blacksmith's Ore Prices": "Decrease by 99%"
       }
     },
-    {
+    // #endregion
+
+
+
+    { // Blacksmith's Cinder Shards
       "LogName": "Blacksmith's Cinder Shards",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -22480,7 +22432,7 @@
       },
       "MoveEntries": [{ "Id": "(O)848", "AfterId": "(O)384" }]
     },
-    {
+    { // Blacksmith's Cinder Shards Visit Volcano Dungeon Condition 
       "LogName": "Blacksmith's Cinder Shards",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -22492,6 +22444,10 @@
       },
       "When": { "Blacksmith's Cinder Shards": "Visited Volcano Dungeon" }
     },
+
+
+
+    // #region Blacksmith's Cinder Shard Price Decreases
     {
       "LogName": "Blacksmith's Cinder Shards Prices 10% Decrease",
       "Action": "EditData",
@@ -22622,6 +22578,9 @@
         "Blacksmith's Ore Prices": "Decrease by 99%"
       }
     },
+    // #endregion
+
+    // #region Blacksmith's Ore Prices Decrease
     {
       "LogName": "Blacksmith's Ore Prices 10% Decrease",
       "Action": "EditData",
@@ -22936,7 +22895,11 @@
       },
       "When": { "Blacksmith's Ore Prices": "Decrease by 99%" }
     },
-    {
+    // #endregion
+
+
+
+    { // Blacksmith's Machinery
       "LogName": "Blacksmith's Machinery",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -23063,7 +23026,7 @@
         "Blacksmith's Machinery": "Immediately, Appropriate Skill Levels"
       }
     },
-    {
+    { // Blacksmith's Machinery Appropriate Skill Levels Condition
       "LogName": "Blacksmith's Machinery Appropriate Skill Levels",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -23081,6 +23044,10 @@
       },
       "When": { "Blacksmith's Machinery": "Appropriate Skill Levels" }
     },
+
+
+
+    // #region Blacksmith's Machinery Price Decreases
     {
       "LogName": "BS Machinery Prices 10% Decrease",
       "Action": "EditData",
@@ -23295,6 +23262,9 @@
         "BS Machinery Prices": "Decrease by 99%"
       }
     },
+    // #endregion
+
+    // #region Dwarf's shop bomb prices decrease 
     {
       "LogName": "Dwarf's Bomb Prices 10% Decrease",
       "Action": "EditData",
@@ -23415,6 +23385,9 @@
       },
       "When": { "Dwarf's Bomb Prices": "Decrease by 99%" }
     },
+    // #endregion
+
+    // #region Dwarf's Shop Monster Musk
     {
       "LogName": "Dwarf's Shop Monster Musk",
       "Action": "EditData",
@@ -23456,7 +23429,7 @@
       },
       "MoveEntries": [{ "Id": "(O)879", "BeforeId": "(O)773" }]
     },
-    {
+    { 
       "LogName": "Dwarf's Shop Shop Monster Musk Reaching Mine's Level 120",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -23466,6 +23439,9 @@
       },
       "When": { "Dwarf's Monster Musk": "Reached Mines Level 120" }
     },
+    // #endregion
+    
+    // #region Dwarf's Shop Monster Musk prices
     {
       "LogName": "Dwarf's Shop Shop Monster Musk Price 4000g",
       "Action": "EditData",
@@ -23570,6 +23546,9 @@
         "Dwarf's Monster Musk Price": "1g"
       }
     },
+    // #endregion
+    
+    // #region Traveling Cart Magic Rock Candy conditions
     {
       "LogName": "Traveling Cart Magic Rock Candy",
       "Action": "EditData",
@@ -23635,6 +23614,9 @@
       },
       "When": { "Travel Magic Rock Candy": "Reaching Mines Level 120" }
     },
+    // #endregion
+
+    // #region Traveling Cart Magic Rock Candy Prices
     {
       "LogName": "Traveling Cart Magic Rock Candy 20000g",
       "Action": "EditData",
@@ -23778,6 +23760,9 @@
         "Travel Magic Rock Candy Price": "1g"
       }
     },
+    // #endregion
+
+    // #region Monster Eradication Goals Decrease
     {
       "LogName": "Monster Eradication Goals Decrease by 10%",
       "Action": "EditData",
@@ -24014,7 +23999,11 @@
       },
       "When": { "Monster Eradication Goals": "Decrease by 99%" }
     },
-    {
+    // #endregion
+
+    // #region Adventurer's Guild Shop Price Decreases
+
+    { // Adventurer's Guild Shop Price Decreases
       "LogName": "Adventurer's Guild Shop Prices Decrease by 10%",
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -24057,7 +24046,7 @@
       },
       "When": { "Adventurer's Guild Shop Prices": "Decrease by 10%" }
     },
-    {
+    { // Adventurer's Guild Shop Monster Slayer Quest Price Decreases
       "LogName": "Adventurer's Guild Shop Prices Monster Slayer Decrease by 10%",
       "Action": "EditData",
       "Target": "Data/MonsterSlayerQuests",
@@ -24828,5 +24817,6 @@
       },
       "When": { "Adventurer's Guild Shop Prices": "Decrease by 99%" }
     }
+    // #endregion
   ]
 }

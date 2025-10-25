@@ -66,17 +66,29 @@
       "Section": "Weapon Modifications",
       "AllowValues": "Default, x2, x3, x4, x5, x10, x15, x20",
       "Default": "Default"
+    },
+    "WeaponSpeed": {
+      "Description": "Adjust the attack speed for all weapons.",
+      "Section": "Weapon Modifications",
+      "AllowValues": "Default, Normalize Slow, Normalize All, Fast, Very Fast",
+      "Default": "Default"
+    },
+    "WeaponsNotLostOnDeath": {
+      "Description": "Prevents the loss of any weapon upon death.",
+      "Section": "Weapon Modifications",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "ScytheDamage": {
+      "Description": "Enables custom damage values for the Gold and Iridium Scythes.",
+      "Section": "Weapon Modifications",
+      "AllowValues": "true, false",
+      "Default": "false"
     }
   },
   "DynamicTokens": [
-    {
-      "Name": "MonsterList",
-      "Value": "{{Data/Monsters | keys}}"
-    },
-    {
-      "Name": "WeaponList",
-      "Value": "{{Data/Weapons | keys}}"
-    },
+    { "Name": "MonsterList", "Value": "{{Data/Monsters | keys}}" },
+    { "Name": "WeaponList", "Value": "{{Data/Weapons | keys}}" },
 
     // #region Weapon Crit Chance Addons
     { "Name": "CritChanceValue", "Value": "0.05", "When": { "WeaponCritChance": "+5%" } },
@@ -98,102 +110,32 @@
     { "Name": "CritPowerMultiplier", "Value": "20", "When": { "WeaponCritPower": "x20" } },
     // #endregion
 
+    // #region Weapon Speed Values
+    { "Name": "WeaponSpeedValue", "Value": "20", "When": { "WeaponSpeed": "Fast" } },
+    { "Name": "WeaponSpeedValue", "Value": "50", "When": { "WeaponSpeed": "Very Fast" } },
+    // #endregion
+
     // #region Monster Health Multipliers
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "0.10",
-      "When": { "MonstersHealth": "HP -90%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "0.25",
-      "When": { "MonstersHealth": "HP -75%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "0.50",
-      "When": { "MonstersHealth": "HP -50%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "0.75",
-      "When": { "MonstersHealth": "HP -25%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "0.90",
-      "When": { "MonstersHealth": "HP -10%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "1.10",
-      "When": { "MonstersHealth": "HP +10%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "1.25",
-      "When": { "MonstersHealth": "HP +25%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "1.50",
-      "When": { "MonstersHealth": "HP +50%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "1.75",
-      "When": { "MonstersHealth": "HP +75%" }
-    },
-    {
-      "Name": "PercentageHealthMultiplier",
-      "Value": "1.90",
-      "When": { "MonstersHealth": "HP +90%" }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "1.0",
-      "When": { "MonstersHealth|contains=Lucky": true }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "1.25",
-      "When": { "MonstersHealth": "Lucky Health (Easy)", "Query: {{DailyLuck}} < -0.07": true }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "0.75",
-      "When": { "MonstersHealth": "Lucky Health (Easy)", "Query: {{DailyLuck}} > 0.07": true }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "1.15",
-      "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} < -0.07": true }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "1.05",
-      "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} >= -0.07 AND {{DailyLuck}} < -0.02": true }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "0.75",
-      "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "0.50",
-      "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} > 0.07": true }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "0.50",
-      "When": { "MonstersHealth": "Lucky Health (Easiest)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true }
-    },
-    {
-      "Name": "LuckyHealthMultiplier",
-      "Value": "0.20",
-      "When": { "MonstersHealth": "Lucky Health (Easiest)", "Query: {{DailyLuck}} > 0.07": true }
-    },
+    { "Name": "PercentageHealthMultiplier", "Value": "0.10", "When": { "MonstersHealth": "HP -90%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "0.25", "When": { "MonstersHealth": "HP -75%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "0.50", "When": { "MonstersHealth": "HP -50%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "0.75", "When": { "MonstersHealth": "HP -25%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "0.90", "When": { "MonstersHealth": "HP -10%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "1.10", "When": { "MonstersHealth": "HP +10%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "1.25", "When": { "MonstersHealth": "HP +25%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "1.50", "When": { "MonstersHealth": "HP +50%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "1.75", "When": { "MonstersHealth": "HP +75%" } },
+    { "Name": "PercentageHealthMultiplier", "Value": "1.90", "When": { "MonstersHealth": "HP +90%" } },
+
+    { "Name": "LuckyHealthMultiplier", "Value": "1.0", "When": { "MonstersHealth|contains=Lucky": true } },
+    { "Name": "LuckyHealthMultiplier", "Value": "1.25", "When": { "MonstersHealth": "Lucky Health (Easy)", "Query: {{DailyLuck}} < -0.07": true } },
+    { "Name": "LuckyHealthMultiplier", "Value": "0.75", "When": { "MonstersHealth": "Lucky Health (Easy)", "Query: {{DailyLuck}} > 0.07": true } },
+    { "Name": "LuckyHealthMultiplier", "Value": "1.15", "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} < -0.07": true } },
+    { "Name": "LuckyHealthMultiplier", "Value": "1.05", "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} >= -0.07 AND {{DailyLuck}} < -0.02": true } },
+    { "Name": "LuckyHealthMultiplier", "Value": "0.75", "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true } },
+    { "Name": "LuckyHealthMultiplier", "Value": "0.50", "When": { "MonstersHealth": "Lucky Health (Easier)", "Query: {{DailyLuck}} > 0.07": true } },
+    { "Name": "LuckyHealthMultiplier", "Value": "0.50", "When": { "MonstersHealth": "Lucky Health (Easiest)", "Query: {{DailyLuck}} > 0.02 AND {{DailyLuck}} <= 0.07": true } },
+    { "Name": "LuckyHealthMultiplier", "Value": "0.20", "When": { "MonstersHealth": "Lucky Health (Easiest)", "Query: {{DailyLuck}} > 0.07": true } },
     // #endregion
 
     // #region Monster Damage Multipliers
@@ -893,6 +835,85 @@
       "When": {
         "WeaponCritPower|not=Default": true
       }
+    },
+    // #endregion
+
+    // #region Weapon Speed Changes
+    {
+      "LogName": "Weapons Speed Adjustment (Normalize Slow)",
+      "Action": "ForEach",
+      "Values": "{{WeaponList}}",
+      "Patch": {
+        "LogName": "Normalizing speed for slow weapon {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Weapons",
+        "TargetField": [ "{{PatchValue}}", "Speed" ],
+        "Value": "0",
+        "When": {
+          "Query: {{Data/Weapons:{{PatchValue}}:Speed}} < 0": true
+        }
+      },
+      "When": {
+        "WeaponSpeed": "Normalize Slow"
+      }
+    },
+    {
+      "LogName": "Weapons Speed Adjustment (Normalize All)",
+      "Action": "ForEach",
+      "Values": "{{WeaponList}}",
+      "Patch": {
+        "LogName": "Normalizing speed for weapon {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Weapons",
+        "TargetField": [ "{{PatchValue}}", "Speed" ],
+        "Value": "0"
+      },
+      "When": {
+        "WeaponSpeed": "Normalize All"
+      }
+    },
+    {
+      "LogName": "Weapons Speed Adjustment (Fast/Very Fast)",
+      "Action": "ForEach",
+      "Values": "{{WeaponList}}",
+      "Patch": {
+        "LogName": "Updating speed for weapon {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Weapons",
+        "TargetField": [ "{{PatchValue}}", "Speed" ],
+        "Value": "{{WeaponSpeedValue}}"
+      },
+      "When": {
+        "WeaponSpeed|contains=Fast": true
+      }
+    },
+    // #endregion
+
+    // #region Miscellaneous Weapon Changes
+    {
+      "LogName": "Weapons Not Lost On Death",
+      "Action": "ForEach",
+      "Values": "{{WeaponList}}",
+      "Patch": {
+        "LogName": "Setting CanBeLostOnDeath for weapon {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Weapons",
+        "TargetField": [ "{{PatchValue}}", "CanBeLostOnDeath" ],
+        "Value": "false"
+      },
+      "When": {
+        "WeaponsNotLostOnDeath": true
+      }
+    },
+    {
+      "LogName": "Gold/Iridium Scythe Damage",
+      "Action": "EditData",
+      "Target": "Data/Weapons",
+      "Fields": {
+        "53": { "MinDamage": 45, "MaxDamage": 55 },
+        "66": { "MinDamage": 65, "MaxDamage": 75 }
+      },
+      "When": { "ScytheDamage": true }
     }
     // #endregion
 
