@@ -30,6 +30,12 @@
       "Section": "Combat Difficulty",
       "AllowValues": "Default, XP -75%, XP -50%, XP -25%, XP +25%, XP +50%, XP +100%, XP +150%, XP +200%",
       "Default": "Default"
+    },
+    "LootDropRate": {
+      "Description": "Adjust the drop rate of monster loot.",
+      "Section": "Combat Difficulty",
+      "AllowValues": "Default, Rate -75%, Rate -50%, Rate -25%, Rate +25%, Rate +50%, Rate +100%, Rate +200%",
+      "Default": "Default"
     }
   },
   "DynamicTokens": [
@@ -558,6 +564,87 @@
       },
       "When": {
         "ExperiencePoints|not=Default": true
+      }
+    }
+    // #endregion
+
+    // #region Monster Loot Multipliers
+    { "Name": "LootMultiplier", "Value": "0.25", "When": { "LootDropRate": "Rate -75%" } },
+    { "Name": "LootMultiplier", "Value": "0.50", "When": { "LootDropRate": "Rate -50%" } },
+    { "Name": "LootMultiplier", "Value": "0.75", "When": { "LootDropRate": "Rate -25%" } },
+    { "Name": "LootMultiplier", "Value": "1.25", "When": { "LootDropRate": "Rate +25%" } },
+    { "Name": "LootMultiplier", "Value": "1.50", "When": { "LootDropRate": "Rate +50%" } },
+    { "Name": "LootMultiplier", "Value": "2.00", "When": { "LootDropRate": "Rate +100%" } },
+    { "Name": "LootMultiplier", "Value": "3.00", "When": { "LootDropRate": "Rate +200%" } },
+    // #endregion
+
+    // #region Generated Loot String Tokens
+    { "Name": "NewLootString_Green_Slime", "Value": "766 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 766 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 153 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 66 {{Query: min(0.99, 0.015 * {{LootMultiplier}}) }} 92 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }} 96 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Dust_Spirit", "Value": "382 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 433 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 84 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 414 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 97 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Bat", "Value": "767 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 767 {{Query: min(0.99, 0.4 * {{LootMultiplier}}) }} 108 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 96 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Frost_Bat", "Value": "767 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 767 {{Query: min(0.99, 0.55 * {{LootMultiplier}}) }} 108 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 97 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Lava_Bat", "Value": "767 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 767 {{Query: min(0.99, 0.7 * {{LootMultiplier}}) }} 108 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Iridium_Bat", "Value": "386 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 386 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 386 {{Query: min(0.99, 0.25 * {{LootMultiplier}}) }} 386 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 288 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 768 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 773 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 349 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 787 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 337 {{Query: min(0.99, 0.008 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Stone_Golem", "Value": "390 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 80 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 382 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 380 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 96 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Wilderness_Golem", "Value": "771 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 771 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 770 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 382 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 86 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 72 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Iridium_Golem", "Value": "771 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 771 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 770 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 382 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 86 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 72 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Grub", "Value": "684 {{Query: min(0.99, 0.6 * {{LootMultiplier}}) }} 273 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 273 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 157 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 114 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 96 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Fly", "Value": "684 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 157 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 114 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 96 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Frost_Jelly", "Value": "766 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 412 {{Query: min(0.99, 0.08 * {{LootMultiplier}}) }} 70 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.015 * {{LootMultiplier}}) }} 92 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 97 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Sludge", "Value": "766 {{Query: min(0.99, 0.8 * {{LootMultiplier}}) }} 157 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} -4 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 72 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 92 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Shadow_Guy", "Value": "769 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 769 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 329 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 337 {{Query: min(0.99, 0.002 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 335 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 334 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 203 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 293 {{Query: min(0.99, 0.03 * {{LootMultiplier}}) }} 108 {{Query: min(0.99, 0.003 * {{LootMultiplier}}) }} -4 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Ghost", "Value": "768 {{Query: min(0.99, 0.95 * {{LootMultiplier}}) }} 768 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 156 {{Query: min(0.99, 0.08 * {{LootMultiplier}}) }} 338 {{Query: min(0.99, 0.08 * {{LootMultiplier}}) }} -6 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }} 97 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Carbon_Ghost", "Value": "749 {{Query: min(0.99, 0.99 * {{LootMultiplier}}) }} 338 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Duggy", "Value": "286 {{Query: min(0.99, 0.25 * {{LootMultiplier}}) }} 535 {{Query: min(0.99, 0.25 * {{LootMultiplier}}) }} 280 {{Query: min(0.99, 0.03 * {{LootMultiplier}}) }} 105 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 86 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 72 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 96 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Rock_Crab", "Value": "717 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }} 286 {{Query: min(0.99, 0.4 * {{LootMultiplier}}) }} 96 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Truffle_Crab", "Value": "430 {{Query: min(0.99, 0.999 * {{LootMultiplier}}) }} 430 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 430 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 717 {{Query: min(0.99, 0.25 * {{LootMultiplier}}) }} 432 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Lava_Crab", "Value": "717 {{Query: min(0.99, 0.25 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.4 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Iridium_Crab", "Value": "732 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 386 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 386 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 386 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Squid_Kid", "Value": "768 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 814 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 288 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Skeleton_Warrior", "Value": "769 {{Query: min(0.99, 0.25 * {{LootMultiplier}}) }} 105 {{Query: min(0.99, 0.03 * {{LootMultiplier}}) }} 106 {{Query: min(0.99, 0.03 * {{LootMultiplier}}) }} 166 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 60 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 232 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 72 {{Query: min(0.99, 0.03 * {{LootMultiplier}}) }} 74 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 97 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Shadow_Brute", "Value": "769 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 769 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 337 {{Query: min(0.99, 0.002 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 335 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 334 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 203 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 108 {{Query: min(0.99, 0.003 * {{LootMultiplier}}) }} -4 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 74 {{Query: min(0.99, 0.0005 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Shadow_Shaman", "Value": "769 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 769 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }} 337 {{Query: min(0.99, 0.002 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 335 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 334 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 108 {{Query: min(0.99, 0.003 * {{LootMultiplier}}) }} -4 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 74 {{Query: min(0.99, 0.0005 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Skeleton", "Value": "881 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 881 {{Query: min(0.99, 0.4 * {{LootMultiplier}}) }} 881 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }} 579 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Skeleton_Mage", "Value": "80 {{Query: min(0.99, 0 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Metal_Head", "Value": "768 {{Query: min(0.99, 0.65 * {{LootMultiplier}}) }} 378 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 378 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 380 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 380 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 382 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Spiker", "Value": "378 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 378 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 380 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 380 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 382 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Bug", "Value": "684 {{Query: min(0.99, 0.76 * {{LootMultiplier}}) }} 157 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 114 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 96 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Mummy", "Value": "768 {{Query: min(0.99, 0.99 * {{LootMultiplier}}) }} 428 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }} 428 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 768 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }} 243 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 856 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 74 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Big_Slime", "Value": "766 {{Query: min(0.99, 0.99 * {{LootMultiplier}}) }} 766 {{Query: min(0.99, 0.9 * {{LootMultiplier}}) }} 766 {{Query: min(0.99, 0.4 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Serpent", "Value": "769 {{Query: min(0.99, 0.99 * {{LootMultiplier}}) }} 769 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }} 226 {{Query: min(0.99, 0.06 * {{LootMultiplier}}) }} 446 {{Query: min(0.99, 0.008 * {{LootMultiplier}}) }} 74 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Pepper_Rex", "Value": "80 {{Query: min(0.99, 0 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Tiger_Slime", "Value": "766 {{Query: min(0.99, 0.8 * {{LootMultiplier}}) }} 157 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} -4 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 72 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 92 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Lava_Lurk", "Value": "881 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 881 {{Query: min(0.99, 0.4 * {{LootMultiplier}}) }} 881 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }} 852 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Hot_Head", "Value": "768 {{Query: min(0.99, 0.65 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 378 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 378 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 380 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 380 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 382 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 833 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 833 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Magma_Sprite", "Value": "848 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 848 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Magma_Duggy", "Value": "831 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 831 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 288 {{Query: min(0.99, 0.4 * {{LootMultiplier}}) }} 848 {{Query: min(0.99, 0.4 * {{LootMultiplier}}) }} 848 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Magma_Sparker", "Value": "848 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 848 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_False_Magma_Cap", "Value": "851 {{Query: min(0.99, 0.99 * {{LootMultiplier}}) }} 848 {{Query: min(0.99, 0.5 * {{LootMultiplier}}) }} 848 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Dwarvish_Sentry", "Value": "60 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 62 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 64 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 66 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 68 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 70 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 72 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Putrid_Ghost", "Value": "749 {{Query: min(0.99, 0.99 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Shadow_Sniper", "Value": "769 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 769 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 337 {{Query: min(0.99, 0.002 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 335 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 334 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 203 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 108 {{Query: min(0.99, 0.003 * {{LootMultiplier}}) }} -4 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 74 {{Query: min(0.99, 0.0005 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Spider", "Value": "769 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 769 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 337 {{Query: min(0.99, 0.002 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.01 * {{LootMultiplier}}) }} 335 {{Query: min(0.99, 0.02 * {{LootMultiplier}}) }} 334 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 203 {{Query: min(0.99, 0.04 * {{LootMultiplier}}) }} 108 {{Query: min(0.99, 0.003 * {{LootMultiplier}}) }} -4 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }} 74 {{Query: min(0.99, 0.0005 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Royal_Serpent", "Value": "769 {{Query: min(0.99, 0.99 * {{LootMultiplier}}) }} 769 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.15 * {{LootMultiplier}}) }} 226 {{Query: min(0.99, 0.06 * {{LootMultiplier}}) }} 446 {{Query: min(0.99, 0.008 * {{LootMultiplier}}) }} 74 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" },
+    { "Name": "NewLootString_Blue_Squid", "Value": "768 {{Query: min(0.99, 0.75 * {{LootMultiplier}}) }} 814 {{Query: min(0.99, 0.2 * {{LootMultiplier}}) }} 336 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 287 {{Query: min(0.99, 0.1 * {{LootMultiplier}}) }} 288 {{Query: min(0.99, 0.05 * {{LootMultiplier}}) }} 98 {{Query: min(0.99, 0.005 * {{LootMultiplier}}) }} 99 {{Query: min(0.99, 0.001 * {{LootMultiplier}}) }}" }
+    // #endregion
+
+    // #region Monster Loot Changes
+    {
+      "LogName": "Monster Loot Drop Rate Adjustment",
+      "Action": "ForEach",
+      "Values": "{{MonsterList}}",
+      "Patch": {
+        "LogName": "Updating loot for {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Monsters",
+        "TargetField": [ "{{PatchValue}}", "6" ],
+        "Value": "{{NewLootString_{{PatchValue | replace: ' ', '_'}}}}",
+        "When": {
+          "Query: '{{Data/Monsters:{{PatchValue}}:12}}' = 'true'": true
+        }
+      },
+      "When": {
+        "LootDropRate|not=Default": true
       }
     }
     // #endregion

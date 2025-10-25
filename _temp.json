@@ -1,15 +1,14 @@
-{
-  "//": "This file contains a placeholder for the old monster experience points (XP) logic. The logic has been refactored in 'content.jsonc'.",
-  "Changes": [
+    // #region PLACEHOLDER: Monster Loot
     {
-      "LogName": "PLACEHOLDER: Combat Skill Experience Points Increased by 1.5X",
+      "LogName": "PLACEHOLDER: Monster Loot Drop Rate Increased by 2X",
       "Action": "EditData",
       "Target": "Data/Monsters",
       "Fields": {
-        "//": "This block previously contained a list of all monsters with hardcoded XP calculations.",
-        "Green Slime": { "13": "{{Round: {{Query: (3 * 1.5) }} }}" }
+        "//": "This block previously contained a list of all monsters with hardcoded loot strings.",
+        "Green Slime": { "6": "766 .99 766 .1 153 .2 66 .03 92 .3 96 .01 99 .002" }
       },
-      "When": { "Combat Skill Experience Points": "Increase EXP by 1.5X" }
-    }
-  ]
-}
+      "When": { 
+        "Monster Loot Drop Rate": "Increase Loot Drops by 2X"
+      }
+    },
+    // #endregion
