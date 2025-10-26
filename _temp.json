@@ -1,0 +1,191 @@
+[
+  // #region Banana Pudding
+  { // PLACEHOLDER: Banana Pudding Duration
+    "LogName": "Banana Pudding Duration",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["904", "Buffs"],
+    "Fields": {
+      "Food": { "Duration": -2 }
+    },
+    "When": { "Banana Pudding Duration": true }
+  },
+  { // PLACEHOLDER: Banana Pudding Buffs
+    "LogName": "Banana Pudding Buffs Stats +2",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["904", "Buffs", "Food"],
+    "Fields": {
+      "//": "This block overwrote all custom attributes. Many similar blocks existed for other buff levels.",
+      "CustomAttributes": {
+        "MiningLevel": 2,
+        "LuckLevel": 2,
+        "Defense": 2
+      }
+    },
+    "When": { "Banana Pudding Buffs": "Stats +2" }
+  },
+  // #endregion
+
+  // #region Fried Eel
+  { // PLACEHOLDER: Fried Eel Duration
+    "LogName": "Fried Eel Duration",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["225", "Buffs"],
+    "Fields": {
+      "Food": { "Duration": -2 }
+    },
+    "When": { "Fried Eel Duration": true }
+  },
+  { // PLACEHOLDER: Fried Eel Buffs
+    "LogName": "Fried Eel Buff Stats +2",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["225", "Buffs", "Food"],
+    "Fields": {
+      "//": "This block overwrote all custom attributes.",
+      "CustomAttributes": {
+        "LuckLevel": 2
+      }
+    },
+    "When": { "Fried Eel Buff": "Stats +2" }
+  },
+  // #endregion
+
+  // #region Ginger Ale
+  { // PLACEHOLDER: Ginger Ale Duration
+    "LogName": "Ginger Ale Duration",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["903", "Buffs"],
+    "Fields": {
+      "Drink": { "Duration": -2 }
+    },
+    "When": { "Ginger Ale Duration": true }
+  },
+  { // PLACEHOLDER: Ginger Ale Buffs
+    "LogName": "Ginger Ale Buff Stats +2",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["903", "Buffs", "Drink"],
+    "Fields": {
+      "//": "This block overwrote all custom attributes.",
+      "CustomAttributes": {
+        "LuckLevel": 2
+      }
+    },
+    "When": { "Ginger Ale Buff": "Stats +2" }
+  },
+  // #endregion
+
+  // #region Lucky Lunch
+  { // PLACEHOLDER: Lucky Lunch Duration
+    "LogName": "Lucky Lunch Duration",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["204", "Buffs"],
+    "Fields": {
+      "Food": { "Duration": -2 }
+    },
+    "When": { "Lucky Lunch Duration": true }
+  },
+  { // PLACEHOLDER: Lucky Lunch Buffs
+    "LogName": "Lucky Lunch Buff Stats +4",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["204", "Buffs", "Food"],
+    "Fields": {
+      "//": "This block overwrote all custom attributes.",
+      "CustomAttributes": {
+        "LuckLevel": 4
+      }
+    },
+    "When": { "Lucky Lunch Buff": "Stats +4" }
+  },
+  // #endregion
+
+  // #region Pumpkin Soup
+  { // PLACEHOLDER: Pumpkin Soup Duration
+    "LogName": "Pumpkin Soup Duration",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["236", "Buffs"],
+    "Fields": {
+      "Food": { "Duration": -2 }
+    },
+    "When": { "Pumpkin Soup Duration": true }
+  },
+  { // PLACEHOLDER: Pumpkin Soup Buffs
+    "LogName": "Pumpkin Soup Buffs Stats +3",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["236", "Buffs", "Food"],
+    "Fields": {
+      "//": "This block overwrote all custom attributes.",
+      "CustomAttributes": {
+        "LuckLevel": 3,
+        "Defense": 3
+      }
+    },
+    "When": { "Pumpkin Soup Buffs": "Stats +3" }
+  },
+  // #endregion
+
+  // #region Spicy Eel
+  { // PLACEHOLDER: Spicy Eel Duration
+    "LogName": "Spicy Eel Duration",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["226", "Buffs"],
+    "Fields": {
+      "Food": { "Duration": -2 }
+    },
+    "When": { "Spicy Eel Duration": true }
+  },
+  { // PLACEHOLDER: Spicy Eel Buffs
+    "LogName": "Spicy Eel Buffs Stats +2",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["226", "Buffs", "Food"],
+    "Fields": {
+      "//": "This block overwrote all custom attributes.",
+      "CustomAttributes": {
+        "LuckLevel": 2,
+        "Speed": 2
+      }
+    },
+    "When": { "Spicy Eel Buffs": "Stats +2" }
+  },
+  // #endregion
+
+  // #region Magic Rock Candy
+  { // PLACEHOLDER: Magic Rock Candy Duration
+    "LogName": "Magic Rock Candy Duration",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["279", "Buffs"],
+    "Fields": {
+      "Food": { "Duration": -2 }
+    },
+    "When": { "Magic Rock Candy Duration": true }
+  },
+  { // PLACEHOLDER: Magic Rock Candy Buffs
+    "LogName": "Magic Rock Candy Buffs Stats +1",
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "TargetField": ["279", "Buffs", "Food"],
+    "Fields": {
+      "//": "This block overwrote all custom attributes.",
+      "CustomAttributes": {
+        "MiningLevel": 3,
+        "LuckLevel": 6,
+        "Speed": 2,
+        "Defense": 6,
+        "Attack": 6
+      }
+    },
+    "When": { "Magic Rock Candy Buffs": "Stats +1" }
+  }
+  // #endregion
+]

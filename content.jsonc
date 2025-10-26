@@ -181,6 +181,90 @@
       "Section": "Ore, Bars, and Minerals",
       "AllowValues": "Default, Increase by 10%, Increase by 25%, Increase by 50%, Increase by 75%, Increase by 90%, Decrease by 10%, Decrease by 25%, Decrease by 50%, Decrease by 75%, Decrease by 90%",
       "Default": "Default"
+    },
+    "BananaPuddingDuration": {
+      "Description": "The Banana Pudding food item buffs will now persist for a full day.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "BananaPuddingBuffs": {
+      "Description": "Increase the stat enhancements for the Banana Pudding food item.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "Default, +1, +2, +3, +4, +5",
+      "Default": "Default"
+    },
+    "FriedEelDuration": {
+      "Description": "The Fried Eel food item buff will now persist for a full day.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "FriedEelBuff": {
+      "Description": "Increase the stat enhancements for the Fried Eel food item.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "Default, +1, +2, +3, +4, +5",
+      "Default": "Default"
+    },
+    "GingerAleDuration": {
+      "Description": "The Ginger Ale drink item buff will now persist for a full day.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "GingerAleBuff": {
+      "Description": "Increase the stat enhancements for the Ginger Ale drink item.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "Default, +1, +2, +3, +4, +5",
+      "Default": "Default"
+    },
+    "LuckyLunchDuration": {
+      "Description": "The Lucky Lunch food item buff will now persist for a full day.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "LuckyLunchBuff": {
+      "Description": "Increase the stat enhancements for the Lucky Lunch food item.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "Default, +1, +2, +3, +4, +5",
+      "Default": "Default"
+    },
+    "PumpkinSoupDuration": {
+      "Description": "The Pumpkin Soup food item buffs will now persist for a full day.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "PumpkinSoupBuffs": {
+      "Description": "Increase the stat enhancements for the Pumpkin Soup food item.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "Default, +1, +2, +3, +4, +5",
+      "Default": "Default"
+    },
+    "SpicyEelDuration": {
+      "Description": "The Spicy Eel food item buffs will now persist for a full day.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "SpicyEelBuffs": {
+      "Description": "Increase the stat enhancements for the Spicy Eel food item.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "Default, +1, +2, +3, +4, +5",
+      "Default": "Default"
+    },
+    "MagicRockCandyDuration": {
+      "Description": "The Magic Rock Candy food item buffs will now persist for a full day.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "MagicRockCandyBuffs": {
+      "Description": "Increase the stat enhancements for the Magic Rock Candy.",
+      "Section": "Luck Food Buffs and Durations",
+      "AllowValues": "Default, +1, +2, +3, +4, +5",
+      "Default": "Default"
     }
   },
   "DynamicTokens": [
@@ -325,6 +409,61 @@
     { "Name": "OreAndBarsPriceMultiplier", "Value": "0.50", "When": { "OreAndBarsSellValue": "Decrease by 50%" } },
     { "Name": "OreAndBarsPriceMultiplier", "Value": "0.25", "When": { "OreAndBarsSellValue": "Decrease by 75%" } },
     { "Name": "OreAndBarsPriceMultiplier", "Value": "0.10", "When": { "OreAndBarsSellValue": "Decrease by 90%" } },
+    // #endregion
+
+    // #region Banana Pudding Buff Tokens
+    { "Name": "BananaPuddingBuffValue", "Value": "1", "When": { "BananaPuddingBuffs": "+1" } },
+    { "Name": "BananaPuddingBuffValue", "Value": "2", "When": { "BananaPuddingBuffs": "+2" } },
+    { "Name": "BananaPuddingBuffValue", "Value": "3", "When": { "BananaPuddingBuffs": "+3" } },
+    { "Name": "BananaPuddingBuffValue", "Value": "4", "When": { "BananaPuddingBuffs": "+4" } },
+    { "Name": "BananaPuddingBuffValue", "Value": "5", "When": { "BananaPuddingBuffs": "+5" } },
+
+    // #region Fried Eel Buff Tokens
+    { "Name": "FriedEelBuffValue", "Value": "1", "When": { "FriedEelBuff": "+1" } },
+    { "Name": "FriedEelBuffValue", "Value": "2", "When": { "FriedEelBuff": "+2" } },
+    { "Name": "FriedEelBuffValue", "Value": "3", "When": { "FriedEelBuff": "+3" } },
+    { "Name": "FriedEelBuffValue", "Value": "4", "When": { "FriedEelBuff": "+4" } },
+    { "Name": "FriedEelBuffValue", "Value": "5", "When": { "FriedEelBuff": "+5" } },
+    // #endregion
+
+    // #region Ginger Ale Buff Tokens
+    { "Name": "GingerAleBuffValue", "Value": "1", "When": { "GingerAleBuff": "+1" } },
+    { "Name": "GingerAleBuffValue", "Value": "2", "When": { "GingerAleBuff": "+2" } },
+    { "Name": "GingerAleBuffValue", "Value": "3", "When": { "GingerAleBuff": "+3" } },
+    { "Name": "GingerAleBuffValue", "Value": "4", "When": { "GingerAleBuff": "+4" } },
+    { "Name": "GingerAleBuffValue", "Value": "5", "When": { "GingerAleBuff": "+5" } },
+    // #endregion
+
+    // #region Lucky Lunch Buff Tokens
+    { "Name": "LuckyLunchBuffValue", "Value": "1", "When": { "LuckyLunchBuff": "+1" } },
+    { "Name": "LuckyLunchBuffValue", "Value": "2", "When": { "LuckyLunchBuff": "+2" } },
+    { "Name": "LuckyLunchBuffValue", "Value": "3", "When": { "LuckyLunchBuff": "+3" } },
+    { "Name": "LuckyLunchBuffValue", "Value": "4", "When": { "LuckyLunchBuff": "+4" } },
+    { "Name": "LuckyLunchBuffValue", "Value": "5", "When": { "LuckyLunchBuff": "+5" } },
+    // #endregion
+
+    // #region Pumpkin Soup Buff Tokens
+    { "Name": "PumpkinSoupBuffValue", "Value": "1", "When": { "PumpkinSoupBuffs": "+1" } },
+    { "Name": "PumpkinSoupBuffValue", "Value": "2", "When": { "PumpkinSoupBuffs": "+2" } },
+    { "Name": "PumpkinSoupBuffValue", "Value": "3", "When": { "PumpkinSoupBuffs": "+3" } },
+    { "Name": "PumpkinSoupBuffValue", "Value": "4", "When": { "PumpkinSoupBuffs": "+4" } },
+    { "Name": "PumpkinSoupBuffValue", "Value": "5", "When": { "PumpkinSoupBuffs": "+5" } },
+    // #endregion
+
+    // #region Spicy Eel Buff Tokens
+    { "Name": "SpicyEelBuffValue", "Value": "1", "When": { "SpicyEelBuffs": "+1" } },
+    { "Name": "SpicyEelBuffValue", "Value": "2", "When": { "SpicyEelBuffs": "+2" } },
+    { "Name": "SpicyEelBuffValue", "Value": "3", "When": { "SpicyEelBuffs": "+3" } },
+    { "Name": "SpicyEelBuffValue", "Value": "4", "When": { "SpicyEelBuffs": "+4" } },
+    { "Name": "SpicyEelBuffValue", "Value": "5", "When": { "SpicyEelBuffs": "+5" } },
+    // #endregion
+
+    // #region Magic Rock Candy Buff Tokens
+    { "Name": "MagicRockCandyBuffValue", "Value": "1", "When": { "MagicRockCandyBuffs": "+1" } },
+    { "Name": "MagicRockCandyBuffValue", "Value": "2", "When": { "MagicRockCandyBuffs": "+2" } },
+    { "Name": "MagicRockCandyBuffValue", "Value": "3", "When": { "MagicRockCandyBuffs": "+3" } },
+    { "Name": "MagicRockCandyBuffValue", "Value": "4", "When": { "MagicRockCandyBuffs": "+4" } },
+    { "Name": "MagicRockCandyBuffValue", "Value": "5", "When": { "MagicRockCandyBuffs": "+5" } },
     // #endregion
 
     // #region Monster Health Multipliers
@@ -1332,18 +1471,14 @@
       "LogName": "Furnace No Coal",
       "Action": "EditData",
       "Target": "Data/Machines/(BC)13",
-      "Fields": {
-        "AdditionalConsumedItems": null
-      },
+      "Fields": { "AdditionalConsumedItems": null },
       "When": { "FurnaceNoCoal": true }
     },
     {
       "LogName": "Heavy Furnace No Coal",
       "Action": "EditData",
       "Target": "Data/Machines/HeavyFurnace",
-      "Fields": {
-        "AdditionalConsumedItems": null
-      },
+      "Fields": { "AdditionalConsumedItems": null },
       "When": { "HeavyFurnaceNoCoal": true }
     },
     // #endregion
@@ -1359,37 +1494,171 @@
         "Target": "Data/Objects",
         "TargetField": [ "{{PatchValue}}", "Price" ],
         "Value": "{{Round: {{Query: {{Data/Objects:{{PatchValue}}:Price}} * {{MineralPriceMultiplier}} }} }}",
-        "When": {
-          "Query: '{{Data/Objects:{{PatchValue}}:Type}}' = 'Minerals'": true
-        }
+        "When": { "Query: '{{Data/Objects:{{PatchValue}}:Type}}' = 'Minerals'": true }
       },
-            "When": {
-              "MineralsSellValue|not=Default": true
-            }
-          },
-          // #endregion
+        "When": { "MineralsSellValue|not=Default": true }
+    },
+    // #endregion
       
-          // #region Ore and Bar Sell Price
-          {
-            "LogName": "Ores and Bars | Adjust Sell Price",
-            "Action": "ForEach",
-            "Values": "{{ObjectIDs}}",
-            "Patch": {
-              "LogName": "Patching Price for ore/bar {{PatchValue}}",
-              "Action": "EditData",
-              "Target": "Data/Objects",
-              "TargetField": [ "{{PatchValue}}", "Price" ],
-              "Value": "{{Round: {{Query: {{Data/Objects:{{PatchValue}}:Price}} * {{OreAndBarsPriceMultiplier}} }} }}",
-              "When": {
-                "Data/Objects:{{PatchValue}}:ContextTags": "ore_item, furnace_item"
-              }
-            },
-            "When": {
-              "OreAndBarsSellValue|not=Default": true
-            }
-          }
-          // #endregion
+    // #region Ore and Bar Sell Price
+    {
+      "LogName": "Ores and Bars | Adjust Sell Price",
+      "Action": "ForEach",
+      "Values": "{{ObjectIDs}}",
+      "Patch": {
+        "LogName": "Patching Price for ore/bar {{PatchValue}}",
+        "Action": "EditData",
+        "Target": "Data/Objects",
+        "TargetField": [ "{{PatchValue}}", "Price" ],
+        "Value": "{{Round: {{Query: {{Data/Objects:{{PatchValue}}:Price}} * {{OreAndBarsPriceMultiplier}} }} }}",
+        "When": { "Data/Objects:{{PatchValue}}:ContextTags": "ore_item, furnace_item" }
+      },
+      "When": { "OreAndBarsSellValue|not=Default": true }
+    },
+    // #endregion
+  
+  //FOODS BUFFS PATCHES  
+    // #region Banana Pudding
+    {
+      "LogName": "Banana Pudding | Set Duration",
+      "Action": "EditData",
+      "Target": "Data/Objects/904/Buffs/0",
+      "Fields": { "Duration": -2 },
+      "When": { "BananaPuddingDuration": true }
+    },
+    {
+      "LogName": "Banana Pudding | Set Buffs",
+      "Action": "EditData",
+      "Target": "Data/Objects/904/Buffs/0/CustomAttributes",
+      "Fields": {
+        "MiningLevel": "{{Query: {{Data/Objects:904:Buffs:0:CustomAttributes:MiningLevel}} + {{BananaPuddingBuffValue}} }}",
+        "LuckLevel": "{{Query: {{Data/Objects:904:Buffs:0:CustomAttributes:LuckLevel}} + {{BananaPuddingBuffValue}} }}",
+        "Defense": "{{Query: {{Data/Objects:904:Buffs:0:CustomAttributes:Defense}} + {{BananaPuddingBuffValue}} }}"
+      },
+      "When": { "BananaPuddingBuffs|not=Default": true }
+    },
+    // #endregion
+
+    // #region Fried Eel
+    {
+      "LogName": "Fried Eel | Set Duration",
+      "Action": "EditData",
+      "Target": "Data/Objects/225/Buffs/0",
+      "Fields": { "Duration": -2 },
+      "When": { "FriedEelDuration": true }
+    },
+    {
+      "LogName": "Fried Eel | Set Buffs",
+      "Action": "EditData",
+      "Target": "Data/Objects/225/Buffs/0/CustomAttributes",
+      "Fields": {
+        "LuckLevel": "{{Query: {{Data/Objects:225:Buffs:0:CustomAttributes:LuckLevel}} + {{FriedEelBuffValue}} }}"
+      },
+      "When": { "FriedEelBuff|not=Default": true }
+    },
+    // #endregion
+
+    // #region Ginger Ale
+    {
+      "LogName": "Ginger Ale | Set Duration",
+      "Action": "EditData",
+      "Target": "Data/Objects/903/Buffs/0",
+      "Fields": { "Duration": -2 },
+      "When": { "GingerAleDuration": true }
+    },
+    {
+      "LogName": "Ginger Ale | Set Buffs",
+      "Action": "EditData",
+      "Target": "Data/Objects/903/Buffs/0/CustomAttributes",
+      "Fields": {
+        "LuckLevel": "{{Query: {{Data/Objects:903:Buffs:0:CustomAttributes:LuckLevel}} + {{GingerAleBuffValue}} }}"
+      },
+      "When": { "GingerAleBuff|not=Default": true }
+    },
+    // #endregion
+
+    // #region Lucky Lunch
+    {
+      "LogName": "Lucky Lunch | Set Duration",
+      "Action": "EditData",
+      "Target": "Data/Objects/204/Buffs/0",
+      "Fields": { "Duration": -2 },
+      "When": { "LuckyLunchDuration": true }
+    },
+    {
+      "LogName": "Lucky Lunch | Set Buffs",
+      "Action": "EditData",
+      "Target": "Data/Objects/204/Buffs/0/CustomAttributes",
+      "Fields": {
+        "LuckLevel": "{{Query: {{Data/Objects:204:Buffs:0:CustomAttributes:LuckLevel}} + {{LuckyLunchBuffValue}} }}"
+      },
+      "When": { "LuckyLunchBuff|not=Default": true }
+    },
+    // #endregion
+
+    // #region Pumpkin Soup
+    {
+      "LogName": "Pumpkin Soup | Set Duration",
+      "Action": "EditData",
+      "Target": "Data/Objects/236/Buffs/0",
+      "Fields": { "Duration": -2 },
+      "When": { "PumpkinSoupDuration": true }
+    },
+    {
+      "LogName": "Pumpkin Soup | Set Buffs",
+      "Action": "EditData",
+      "Target": "Data/Objects/236/Buffs/0/CustomAttributes",
+      "Fields": {
+        "LuckLevel": "{{Query: {{Data/Objects:236:Buffs:0:CustomAttributes:LuckLevel}} + {{PumpkinSoupBuffValue}} }}",
+        "Defense": "{{Query: {{Data/Objects:236:Buffs:0:CustomAttributes:Defense}} + {{PumpkinSoupBuffValue}} }}"
+      },
+      "When": { "PumpkinSoupBuffs|not=Default": true }
+    },
+    // #endregion
+
+    // #region Spicy Eel
+    {
+      "LogName": "Spicy Eel | Set Duration",
+      "Action": "EditData",
+      "Target": "Data/Objects/226/Buffs/0",
+      "Fields": { "Duration": -2 },
+      "When": { "SpicyEelDuration": true }
+    },
+    {
+      "LogName": "Spicy Eel | Set Buffs",
+      "Action": "EditData",
+      "Target": "Data/Objects/226/Buffs/0/CustomAttributes",
+      "Fields": {
+        "LuckLevel": "{{Query: {{Data/Objects:226:Buffs:0:CustomAttributes:LuckLevel}} + {{SpicyEelBuffValue}} }}",
+        "Speed": "{{Query: {{Data/Objects:226:Buffs:0:CustomAttributes:Speed}} + {{SpicyEelBuffValue}} }}"
+      },
+      "When": { "SpicyEelBuffs|not=Default": true }
+    },
+    // #endregion
+
+    // #region Magic Rock Candy
+    {
+      "LogName": "Magic Rock Candy | Set Duration",
+      "Action": "EditData",
+      "Target": "Data/Objects/279/Buffs/0",
+      "Fields": { "Duration": -2 },
+      "When": { "MagicRockCandyDuration": true }
+    },
+    {
+      "LogName": "Magic Rock Candy | Set Buffs",
+      "Action": "EditData",
+      "Target": "Data/Objects/279/Buffs/0/CustomAttributes",
+      "Fields": {
+        "MiningLevel": "{{Query: {{Data/Objects:279:Buffs:0:CustomAttributes:MiningLevel}} + {{MagicRockCandyBuffValue}} }}",
+        "LuckLevel": "{{Query: {{Data/Objects:279:Buffs:0:CustomAttributes:LuckLevel}} + {{MagicRockCandyBuffValue}} }}",
+        "Speed": "{{Query: {{Data/Objects:279:Buffs:0:CustomAttributes:Speed}} + {{MagicRockCandyBuffValue}} }}",
+        "Defense": "{{Query: {{Data/Objects:279:Buffs:0:CustomAttributes:Defense}} + {{MagicRockCandyBuffValue}} }}",
+        "Attack": "{{Query: {{Data/Objects:279:Buffs:0:CustomAttributes:Attack}} + {{MagicRockCandyBuffValue}} }}"
+      },
+      "When": { "MagicRockCandyBuffs|not=Default": true }
+    }
+    // #endregion
       
       
-        ]
-      }
+  ]
+}
